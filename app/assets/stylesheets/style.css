@@ -69,10 +69,10 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.posts-index h2,
-.new-post-form h2 {
+.posts-index h3,
+.new-post-form h3 {
   color: #aaa;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .post {
