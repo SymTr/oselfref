@@ -11,6 +11,20 @@
   </head>
 
   <body>
+     <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">App名は未定</a></h1>
+        <div class="user_nav grid-6">
+          <a class="post" href="/posts/new">投稿する</a>
+          <a class="logout" href="/">ログアウト</a>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+     <footer class="footer">
+      <p>
+        Copyright SymTr 2024.
+      </p>
+    </footer>
   </body>
 </html>

@@ -2,26 +2,42 @@
 <div class="posts-index">
   <% @posts.each do |post| %>
     <div class="post">
-      <h2>出来事の記録</h2>
-      <p><strong>出来事:</strong> <%= post.event %></p>
+      <div class="post__item">
+        <p class="title"><strong>投稿日時:</strong></p>
+        <p class="content"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+      </div>
+    
+      <div class="post__item">
+        <p class="title"><strong>出来事:</strong></p>
+        <p class="content"><%= post.event %></p>
+      </div>
 
-      <h3>感情の記録</h3>
-      <p><strong>感情:</strong> <%= post.emotions %></p>
-      <%# <%= post.emotions.join(", ") %>
+      <div class="post__item">
+        <p class="title"><strong>感情:</strong></p>
+        <p class="content"><%= post.emotions %></p>
+        <%# <%= post.emotions.join(", ") %>
+      </div>
 
-      <h3>自分の課題の記録</h3>
-      <p><strong>自分の課題:</strong> <%= post.self_task %></p>
+      <div class="post__item">
+        <p class="title"><strong>自分の課題:</strong></p>
+        <p class="content"><%= post.self_task %></p>
+      </div>
 
-      <h3>他者の課題の記録</h3>
-      <p><strong>他者の課題:</strong> <%= post.other_task %></p>
+      <div class="post__item">
+        <p class="title"><strong>他者の課題:</strong></p>
+        <p class="content"><%= post.other_task %></p>
+      </div>
 
-      <h3>記入後の心境の変化の記録</h3>
-      <p><strong>記入後の心境:</strong> <%= post.mood_after %></p>
+      <div class="post__item">
+        <p class="title"><strong>記入後の心境:</strong></p>
+        <p class="content"><%= post.mood_after %></p>
+      </div>
 
-      <h3>備考</h3>
-      <p><%= post.note %></p>
-
-      <p><strong>投稿日時:</strong> <%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+      <div class="post__item">
+        <p class="title"><strong>備考:</strong></p>
+        <p class="content"><%= post.note %></p>
+      </div>
     </div>
   <% end %>
 </div>
+

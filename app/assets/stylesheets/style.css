@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212; /* Dark black for the body */
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background: linear-gradient(to bottom, #333333, #121212); /* Gradient from lighter black to dark black */
+  padding: 10px 0;
+}
+
+.header__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header .user_nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.header .user_nav a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background: linear-gradient(to top, #333333, #121212); /* Gradient from lighter black to dark black */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.posts-index {
+  padding: 20px;
+  margin-left: 40px; /* Space on the left */
+}
+
+.post {
+  background-color: #1f1f1f; /* Box background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  position: relative;
+}
+
+.post::after {
+  content: '';
+  display: block;
+  width: calc(100% - 40px);
+  height: 1px;
+  background-color: #333;
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+}
+
+.post__item {
+  margin-bottom: 10px;
+}
+
+.title {
+  color: #aaa; /* Dark gray for titles */
+  margin: 0;
+}
+
+.content {
+  color: #fff; /* White text for content */
+  background-color: #000; /* Real dark black for content background */
+  padding: 10px;
+  margin-top: 5px; /* Space between title and content */
+  border-radius: 4px; /* Slight rounding for content boxes */
+}
+
+.app-title {
+  margin-left: 40px; /* Space on the left for the title */
+}
