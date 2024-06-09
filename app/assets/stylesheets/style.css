@@ -75,7 +75,9 @@ body {
 }
 
 .posts-index,
-.new-post-form {
+.new-post-form, 
+.form-container {
+  width: 100%;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
@@ -151,7 +153,7 @@ body {
   background-color: #333;
   border: none;
   border-radius: 4px;
-  color: #fff;
+  color: #fff;a
   cursor: pointer;
 }
 
