@@ -20,7 +20,7 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | event      | text       | null: false                    |
-| emotions   | text     | array: true, default: []       |
+| emotions   | text       | array: true, default: []       |
 | self_task  | text       | null: false                    |
 | other_task | text       | null: false                    |
 | mood_after | text       | null: false                    |
