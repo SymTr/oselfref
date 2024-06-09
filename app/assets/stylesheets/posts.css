@@ -1,0 +1,25 @@
+/* app/assets/stylesheets/posts.css */
+.posts-index {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.posts-index .post {
+  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.posts-index h2, .posts-index h3 {
+  color: #fff;
+  margin-top: 20px;
+}
+
+.posts-index p {
+  margin: 10px 0;
+}
+
+.posts-index p strong {
+  color: #ddd;
+}
