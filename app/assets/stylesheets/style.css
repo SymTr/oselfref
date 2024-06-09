@@ -69,9 +69,8 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.posts-index h3,
-.new-post-form h3 {
-  color: #aaa;
+.page-title {
+  color: #fff; /* White font color for page titles */
   margin-bottom: 40px;
 }
 
