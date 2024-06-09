@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_09_005923) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_09_100047) do
   create_table "posts", charset: "utf8", force: :cascade do |t|
     t.text "event", null: false
-    t.text "emotions", null: false
     t.text "self_task", null: false
     t.text "other_task", null: false
     t.text "mood_after", null: false
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "emotions"
   end
 
 end
