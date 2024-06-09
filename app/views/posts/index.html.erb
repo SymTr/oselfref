@@ -1,0 +1,27 @@
+<!-- app/views/posts/index.html.erb -->
+<div class="posts-index">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h2>出来事の記録</h2>
+      <p><strong>出来事:</strong> <%= post.event %></p>
+
+      <h3>感情の記録</h3>
+      <p><strong>感情:</strong> <%= post.emotions %></p>
+      <%# <%= post.emotions.join(", ") %>
+
+      <h3>自分の課題の記録</h3>
+      <p><strong>自分の課題:</strong> <%= post.self_task %></p>
+
+      <h3>他者の課題の記録</h3>
+      <p><strong>他者の課題:</strong> <%= post.other_task %></p>
+
+      <h3>記入後の心境の変化の記録</h3>
+      <p><strong>記入後の心境:</strong> <%= post.mood_after %></p>
+
+      <h3>備考</h3>
+      <p><%= post.note %></p>
+
+      <p><strong>投稿日時:</strong> <%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+    </div>
+  <% end %>
+</div>
