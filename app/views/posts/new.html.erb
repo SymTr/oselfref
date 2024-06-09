@@ -1,0 +1,47 @@
+<!-- app/views/posts/new.html.erb -->
+<div class="new-post-form">
+  <h2>新しい投稿を作成</h2>
+  <%= form_with model: @post, local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :event, "何がありましたか？起きたことを書いてみましょう" %>
+      <%= form.text_area :event, rows: 3 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んでみましょう" %>
+       <div class="checkbox-grid">
+        <%= form.check_box :emotions, { multiple: true }, '喜び', nil %> 喜び
+        <%= form.check_box :emotions, { multiple: true }, '悲しみ', nil %> 悲しみ
+        <%= form.check_box :emotions, { multiple: true }, '怒り', nil %> 怒り
+        <%= form.check_box :emotions, { multiple: true }, '驚き', nil %> 驚き
+        <%= form.check_box :emotions, { multiple: true }, '恐れ', nil %> 恐れ
+        <%= form.check_box :emotions, { multiple: true }, '嫌悪', nil %> 嫌悪
+        <%= form.check_box :emotions, { multiple: true }, '不安', nil %> 不安
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :self_task, "自分の課題（自分が変えられること）は何ですか？" %>
+      <%= form.text_area :self_task, rows: 3 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :other_task, "他者の課題（自分には変えられないこと）は何ですか？" %>
+      <%= form.text_area :other_task, rows: 3 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :mood_after, "どんな感情が出てきましたか？課題の分離を行うことで感情に変化があったかどうか記録しましょう" %>
+      <%= form.text_area :mood_after, rows: 3 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :note, "備考：その他自由に記載しましょう" %>
+      <%= form.text_area :note, rows: 3 %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "投稿する", class: "btn-submit" %>
+    </div>
+  <% end %>
+</div>
