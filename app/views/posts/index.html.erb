@@ -1,5 +1,6 @@
 <!-- app/views/posts/index.html.erb -->
 <div class="posts-index">
+  <h3 class="page-title">投稿一覧</h3>
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post__item">
@@ -15,7 +16,6 @@
       <div class="post__item">
         <p class="title"><strong>感情:</strong></p>
         <p class="content"><%= post.emotions %></p>
-        <%# <%= post.emotions.join(", ") %>
       </div>
 
       <div class="post__item">
@@ -40,4 +40,3 @@
     </div>
   <% end %>
 </div>
-
