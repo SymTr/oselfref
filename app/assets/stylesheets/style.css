@@ -6,6 +6,21 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* スマホ閲覧前提のデザイン　はじめ ***********/
+.body__container{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  background-color: #191919;
+  color: #fff;
+  width: 100%;
+  max-width: 800px; /* PCでも一定の大きさを保つ */
+  margin: 0 auto;
+  min-height: 100vh;
+}
+/* スマホ閲覧前提のデザイン　おわり ***********/
+
+
 .header {
   background: linear-gradient(to bottom, #333333, #121212); /* Gradient from lighter black to dark black */
   padding: 10px 0;
