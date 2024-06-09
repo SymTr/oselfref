@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-    # @postsという変数にPostモデルが管理するpostsテーブルすべてのレコードを代入
+    @posts = Post.order(created_at: :desc)
+    
   end
 
   def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to @post, notice: '保存されました'
+      redirect_to posts_path, notice: '保存されました'
     else 
       render :new
     end
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   private
   def post_params 
-    params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note)
+    params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note, emotions: [])
   end 
   # def post_params 
   #   params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note).merge(user_id: current_user.id)
