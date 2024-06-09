@@ -7,6 +7,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+     <% if controller.controller_name == 'sessions' || controller.controller_name == 'registrations' %>
+      <%= stylesheet_link_tag "devise", "data-turbo-track": "reload" %>
+    <% end %>
+    <%# if とその次の行は、devise専用CSSの読み込みを設定している %>
     <%= javascript_importmap_tags %>
   </head>
 
