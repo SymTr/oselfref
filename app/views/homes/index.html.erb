@@ -1,0 +1,20 @@
+<!-- app/views/homes/index.html.erb -->
+<div class="container top-page">
+  <h1 class="page-title">Welcome to Self Reflection App</h1>
+  <p>This is the top page of the application. You can log in, sign up, or explore posts.</p>
+
+  <% if user_signed_in? %>
+    <p>
+      Welcome, <%= current_user.nickname %>!
+      <div class="button-group">
+        <%= link_to "新規投稿", new_post_path, class: "btn btn-primary" %>
+        <%= link_to "投稿一覧", posts_path, class: "btn btn-secondary" %>
+      </div>
+    </p>
+  <% else %>
+    <div class="button-group">
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>
