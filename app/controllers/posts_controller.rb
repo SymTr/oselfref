@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index]
   
   def index
-    @posts = Post.order(created_at: :desc)  
+    @posts = current_user.posts.order(created_at: :desc)
   end
 
   def new

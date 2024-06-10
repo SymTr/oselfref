@@ -1,42 +1,46 @@
 <!-- app/views/posts/index.html.erb -->
 <div class="posts-index">
   <h3 class="page-title">投稿一覧</h3>
-  <% @posts.each do |post| %>
-    <div class="post">
-      <div class="post__item">
-        <p class="title"><strong>投稿日時:</strong></p>
-        <p class="content"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-      </div>
-    
-      <div class="post__item">
-        <p class="title"><strong>出来事:</strong></p>
-        <p class="content"><%= post.event %></p>
-      </div>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="post__item">
+          <p class="title"><strong>投稿日時:</strong></p>
+          <p class="content"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+        </div>
+        
+        <div class="post__item">
+          <p class="title"><strong>出来事:</strong></p>
+          <p class="content"><%= post.event %></p>
+        </div>
 
-      <div class="post__item">
-        <p class="title"><strong>感情:</strong></p>
-        <p class="content"><%= post.emotions %></p>
-      </div>
+        <div class="post__item">
+          <p class="title"><strong>感情:</strong></p>
+          <p class="content"><%= post.emotions %></p>
+        </div>
 
-      <div class="post__item">
-        <p class="title"><strong>自分の課題:</strong></p>
-        <p class="content"><%= post.self_task %></p>
-      </div>
+        <div class="post__item">
+          <p class="title"><strong>自分の課題:</strong></p>
+          <p class="content"><%= post.self_task %></p>
+        </div>
 
-      <div class="post__item">
-        <p class="title"><strong>他者の課題:</strong></p>
-        <p class="content"><%= post.other_task %></p>
-      </div>
+        <div class="post__item">
+          <p class="title"><strong>他者の課題:</strong></p>
+          <p class="content"><%= post.other_task %></p>
+        </div>
 
-      <div class="post__item">
-        <p class="title"><strong>記入後の心境:</strong></p>
-        <p class="content"><%= post.mood_after %></p>
-      </div>
+        <div class="post__item">
+          <p class="title"><strong>記入後の心境:</strong></p>
+          <p class="content"><%= post.mood_after %></p>
+        </div>
 
-      <div class="post__item">
-        <p class="title"><strong>備考:</strong></p>
-        <p class="content"><%= post.note %></p>
+        <div class="post__item">
+          <p class="title"><strong>備考:</strong></p>
+          <p class="content"><%= post.note %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <p>投稿はありません</p>
   <% end %>
 </div>

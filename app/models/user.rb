@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { within: 6..128 }
+
+  has_many :posts, dependent: :destroy
 end
