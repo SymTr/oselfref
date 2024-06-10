@@ -5,8 +5,8 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="auth-form-group">
-      <%= f.label :nickname %>
-      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "auth-form-control" %>
+      <%= f.label :nickname %> <em>(6 characters maximum)</em><br />
+      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "auth-form-control", maxlength: 6 %>
     </div>
 
     <div class="auth-form-group">
