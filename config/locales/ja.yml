@@ -3,23 +3,32 @@ ja:
   time:
     formats:
       short: "%Y/%m/%d %H:%M"
+  # config/locales/ja.yml
+ja:
   activerecord:
-    models:
-      user: ユーザー
-    attributes:
-      user:
-        nickname: ニックネーム
-        email: メールアドレス
     errors:
       models:
         user:
           attributes:
             nickname:
               blank: "を入力してください"
-              too_long: "は%{count}文字以内で入力してください"
+              too_long: "は6文字以内で入力してください"
             email:
               blank: "を入力してください"
+              invalid: "は不正な値です"
+              taken: "はすでに存在します"
+            password:
+              blank: "を入力してください"
+              too_short: "は6文字以上で入力してください"
+              too_long: "は128文字以内で入力してください"
+            password_confirmation:
+              confirmation: "とPasswordの入力が一致しません"
+          blank: "を入力してください"
   errors:
     messages:
       blank: "を入力してください"
-      too_long: "は%{count}文字以内で入力してください"
+      taken: "はすでに存在します"
+      too_short: "は6文字以上で入力してください"
+      too_long: "は128文字以内で入力してください"
+      invalid: "は不正な値です"
+      confirmation: "とPasswordの入力が一致しません"
