@@ -50,6 +50,17 @@ body {
   text-decoration: underline;
 }
 
+/* メニュー　サインアウト時 =starts=****/
+a {
+  color: #fff; /* Change link color to white */
+  text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+/* メニュー　サインアウト時 =end= ************/
+
 .footer {
   background: linear-gradient(to top, #333333, #121212); /* Gradient from lighter black to dark black */
   color: #fff;
@@ -160,3 +171,29 @@ body {
 .btn-submit:hover {
   background-color: #444;
 }
+
+/* for top page css =stars=****************/
+
+.top-page {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.top-page .page-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.top-page p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.button-group .btn {
+  margin: 5px;
+}
+/* for top page css =end= ****************/
