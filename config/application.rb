@@ -13,7 +13,7 @@ module Oselfref
 
     # Set the default time zone to Tokyo
     config.time_zone = 'Tokyo'
-    config.i18n.default_locale = :ja
+    config.i18n.default_locale = :en
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
