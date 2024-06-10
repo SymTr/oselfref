@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.text :other_task, null: false
       t.text :mood_after, null: false
       t.text :note
-      # t.references :user, null: false, foreign_key: true
+      # t.references :user, null: false, foreign_key: true は後からコンソールで追加した。
       t.timestamps
     end
   end
