@@ -3,3 +3,23 @@ ja:
   time:
     formats:
       short: "%Y/%m/%d %H:%M"
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: "を入力してください"
+              too_long: "は%{count}文字以内で入力してください"
+            email:
+              blank: "を入力してください"
+  errors:
+    messages:
+      blank: "を入力してください"
+      too_long: "は%{count}文字以内で入力してください"
