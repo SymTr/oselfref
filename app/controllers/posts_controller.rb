@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :move_to_index, except: [:index]
+  
   def index
-    @posts = Post.order(created_at: :desc)
-    
+    @posts = Post.order(created_at: :desc)  
   end
 
   def new
@@ -19,9 +21,10 @@ class PostsController < ApplicationController
 
   private
   def post_params 
-    params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note, emotions: [])
+    params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note, emotions: []).merge(user_id: current_user.id)
   end 
-  # def post_params 
-  #   params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note).merge(user_id: current_user.id)
-  # end 
+  
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
