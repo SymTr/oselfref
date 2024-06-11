@@ -64,3 +64,7 @@
 .auth-btn-submit:hover {
   background-color: #444;
 }
+
+.error-alert {
+  color: red;
+}
