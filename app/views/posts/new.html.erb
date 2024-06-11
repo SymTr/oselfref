@@ -2,6 +2,7 @@
 <div class="new-post-form">
   <h3 class="page-title">新しい投稿を作成</h3>
   <%= form_with model: @post, local: true do |form| %>
+    <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
       <%= form.label :event, "何がありましたか？起きたことを書いてみましょう" %>
       <%= form.text_area :event, rows: 3 %>
