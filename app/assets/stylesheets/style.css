@@ -197,3 +197,16 @@ a:hover {
   margin: 5px;
 }
 /* for top page css =end= ****************/
+
+
+.error-alert {
+  color: red; /* フォントの色を赤に設定 */
+  font-weight: bold; /* フォントの太さをボールドに設定 */
+  padding: 10px; /* パディングを追加 */
+  margin-bottom: 15px; /* 下部に余白を追加 */
+  background-color: transparent; /* 背景色を透明に設定 */
+}
+
+.error-message {
+  margin-bottom: 5px; /* 各エラーメッセージの間に余白を追加 */
+}
