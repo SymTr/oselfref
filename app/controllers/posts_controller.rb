@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: '保存されました'
     else 
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
