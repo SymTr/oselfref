@@ -2,6 +2,8 @@
 <div class="auth-form">
   <h3 class="auth-title">ログイン</h3>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>  
+    
     <div class="auth-form-group">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-form-control" %>
