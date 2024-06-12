@@ -50,6 +50,7 @@
 
 .auth-actions {
   text-align: center; /* Center the submit button */
+  margin-bottom: 20px;
 }
 
 .auth-btn-submit {
