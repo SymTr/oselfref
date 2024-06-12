@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'homes/index'
   
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   resources :posts, only: [:index, :new, :create]
 
