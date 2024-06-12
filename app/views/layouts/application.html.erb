@@ -7,15 +7,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-     <% if controller.controller_name == 'sessions' || controller.controller_name == 'registrations' %>
+    <% if controller.controller_name == 'sessions' || controller.controller_name == 'registrations' %>
       <%= stylesheet_link_tag "devise", "data-turbo-track": "reload" %>
+       <%# if とその次の行は、devise専用CSSの読み込みを設定している %>
     <% end %>
-    <%# if とその次の行は、devise専用CSSの読み込みを設定している %>
+    <%= stylesheet_link_tag "top_page", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-     <header class="header">
+    <header class="header">
       <div class="header__bar row">
         <h3 class="grid-6"><a href="/">Self Reflection</a></h3>
         <% if user_signed_in? %>
@@ -24,19 +25,19 @@
           <%= link_to "新規投稿", new_post_path, class: "post" %>
           <%= link_to "投稿一覧", posts_path, class: "post" %>
         </div>
-      <% else %>
+        <% else %>
         <div class="grid-6">
           <%= link_to "ログイン", new_user_session_path, class: "post" %>
           <%= link_to "新規登録", new_user_registration_path, class: "post" %>
         </div>
-      <% end %>
+        <% end %>
       </div>
     </header>
 
     <div class="body__container">
       <%= yield %>
     </div>
-     <footer class="footer">
+    <footer class="footer">
       <p>
         Copyright SymTr 2024.
       </p>
