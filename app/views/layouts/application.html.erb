@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Oselfref</title>
+    <title>SelfRef</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,7 @@
   <body>
      <header class="header">
       <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">Self Reflection</a></h1>
+        <h3 class="grid-6"><a href="/">Self Reflection</a></h3>
         <% if user_signed_in? %>
         <div class="user_nav grid-6">
           <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
