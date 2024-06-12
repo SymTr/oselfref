@@ -1,35 +1,25 @@
 <!-- app/views/homes/index.html.erb -->
 <div class="container top-page">
   <h1 class="page-title">You can change the world</h1>
-  <p>This is the top page of the application. You can log in, sign up, or explore posts.</p>
-
+  
   <% if user_signed_in? %>
     <p>
       Welcome, <%= current_user.nickname %>!
-      <%# <div class="button-group">
-        <%= link_to "新規投稿", new_post_path, class: "btn btn-primary" %>
-        <%# <%= link_to "投稿一覧", posts_path, class: "btn btn-secondary" %>
-      <%# </div>   %>
     </p>
-  <%# <% else %>
-    <%# <div class="button-group">
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-      <%# <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary" %>
-    <%# </div>   %>
   <% end %>
 
   <div class="info-section">
     <h2>Who is this app for?</h2>
-    <p>This app is designed for individuals who are looking to improve their self-awareness and personal growth through regular reflection and journaling.</p>
+    <p>自分の考え方を変えることで、見えている世界を変えたい人</p>
   </div>
 
   <div class="info-section">
     <h2>How to use this app</h2>
-    <p>Simply sign up or log in to start creating posts. Each post allows you to reflect on your day, your emotions, and the tasks you completed or plan to complete.</p>
+    <p>うれしい、悲しい、etc. こころが動いた瞬間のできごとを記録しましょう</p>
   </div>
 
   <div class="info-section">
     <h2>Story of the Developer</h2>
-    <p>This app was created by a dedicated developer who wanted to provide a tool for people to track their personal growth and mental well-being. Inspired by the principles of Adlerian psychology, this app encourages users to separate their tasks from others' and focus on what they can control.</p>
+    <p>Detail about how the app was developed and the inspiration behind it.</p>
   </div>
 </div>
