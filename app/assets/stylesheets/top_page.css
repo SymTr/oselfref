@@ -71,3 +71,28 @@ body {
   line-height: 1.5;
   color: #ccc;
 }
+
+/* for top page css =stars=****************/
+ 
+.top-page {
+  text-align: center;
+  margin-top: 50px;
+}
+/* 
+.top-page {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.top-page p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.button-group .btn {
+  margin: 5px;
+} */
