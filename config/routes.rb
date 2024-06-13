@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :posts, only: [:index, :new, :create]
+  resources :posts, only: [:index, :new, :create] do
+    collection do
+      get :index, defaults: { format: 'html' }
+      get :index, defaults: { format: 'csv' }
+    end
+  end
 
   # Define root path
   root to: 'homes#index'
