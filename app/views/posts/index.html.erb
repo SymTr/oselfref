@@ -1,6 +1,9 @@
 <!-- app/views/posts/index.html.erb -->
 <div class="posts-index">
   <div class="page-title">投稿一覧</div>
+  <div class="button-group">
+    <%= link_to "CSV出力", posts_path(format: :csv), class: "btn btn-secondary" %>
+  </div>
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="post">

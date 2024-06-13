@@ -9,7 +9,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んびましょう *" %>
+      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選びましょう *" %>
        <div class="checkbox-grid">
         <%= form.check_box :emotions, { multiple: true }, '喜び', nil %> 喜び
         <%= form.check_box :emotions, { multiple: true }, '悲しみ', nil %> 悲しみ
@@ -37,7 +37,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :mood_after, "どんな感情が出てきましたか？記入を行い感情に変化があったかどうか記録しましょう *" %>
+      <%= form.label :mood_after, "どんな感情が出てきましたか？ *" %>
       <%= form.text_area :mood_after, rows: 3 %>
     </div>
 
