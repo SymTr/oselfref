@@ -50,7 +50,8 @@ https://oselfref.onrender.com
 
 # 機能（実装予定）
 - CSV出力範囲設定
-- 感情の記録と分析
+- 分析機能
+- 感情の度合いを数値で表示
 - AIとの連携（API）
 
 # ER図
@@ -107,4 +108,12 @@ graph TD;
 % git clone https://github.com/SymTr/oselfref.git
 % cd oselfref
 % bundle install
-% yarn install
+
+# 工夫したポイント
+- スマートフォン操作前提のU/Iにしました。
+
+# 改善点
+- 質問内容は、適宜アップデートしていきます。
+
+# 制作時間
+約96時間（12日間）
