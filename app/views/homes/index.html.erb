@@ -4,7 +4,11 @@
   <div class="page-title">「せかいのみかたをかえてみよう」</div>
   <% if user_signed_in? %>
     <div class="user-name">
-        Welcome, <%= current_user.nickname %>さん!
+        Welcome, <%= current_user.nickname %>さん！
+    </div>
+    <% else %>
+    <div class="user-name">
+        ログインしてください
     </div>
   <% end %>
 
