@@ -1,15 +1,15 @@
 <!-- app/views/posts/new.html.erb -->
-<div class="new-post-form">
-  <h3 class="page-title">新しい投稿を作成</h3>
+<div class="container new-post-form">
+  <div class="page-title">新しい投稿を作成</div>
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
-      <%= form.label :event, "何がありましたか？起きたことを書いてみましょう" %>
-      <%= form.text_area :event, rows: 3 %>
+      <%= form.label :event, "何がありましたか？起きたこと（事実）と自分の考えを書いてみましょう *" %>
+      <%= form.text_area :event, rows: 5 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んでみましょう" %>
+      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んびましょう *" %>
        <div class="checkbox-grid">
         <%= form.check_box :emotions, { multiple: true }, '喜び', nil %> 喜び
         <%= form.check_box :emotions, { multiple: true }, '悲しみ', nil %> 悲しみ
@@ -22,23 +22,23 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :self_task, "自分の課題（自分が変えられること）は何ですか？" %>
-      <%= form.text_area :self_task, rows: 3 %>
+      <%= form.label :self_task, "自分の課題（自分には変えられること）と他者の課題（自分には変えられないこと）は何ですか？ *" %>
+      <%= form.text_area :self_task, rows: 5 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :other_task, "他者の課題（自分には変えられないこと）は何ですか？" %>
-      <%= form.text_area :other_task, rows: 3 %>
+      <%= form.label :other_task, "上記の考えの根拠はありますか？もし上記の考えが違っているとしたらその根拠はありますか？ *" %>
+      <%= form.text_area :other_task, rows: 5 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :mood_after, "どんな感情が出てきましたか？課題の分離を行うことで感情に変化があったかどうか記録しましょう" %>
+      <%= form.label :note, "さらに他の考え方はできそうでしょうか？自由に記述してみましょう" %>
+      <%= form.text_area :note, rows: 5 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :mood_after, "どんな感情が出てきましたか？記入を行い感情に変化があったかどうか記録しましょう *" %>
       <%= form.text_area :mood_after, rows: 3 %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :note, "備考：その他自由に記載しましょう" %>
-      <%= form.text_area :note, rows: 3 %>
     </div>
 
     <div class="actions">
