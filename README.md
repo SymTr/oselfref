@@ -92,6 +92,7 @@ https://oselfref.onrender.com
 - belongs_to :user
 
 # 画面遷移図
+![alt text](image-1.png)
 graph TD;
     A[Top-page] --> B[Sign up];
     A[Top-page] --> C[Log in];
@@ -105,9 +106,9 @@ graph TD;
 - Ruby (version 3.2.0)
 
 # ローカルでの動作方法
-% git clone https://github.com/SymTr/oselfref.git
-% cd oselfref
-% bundle install
+- git clone https://github.com/SymTr/oselfref.git
+- cd oselfref
+- bundle install
 
 # 工夫したポイント
 - スマートフォン操作前提のU/Iにしました。
