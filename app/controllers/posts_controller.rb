@@ -1,9 +1,16 @@
+require 'csv'
+
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :move_to_index, except: [:index]
   
   def index
     @posts = current_user.posts.order(created_at: :desc)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data generate_csv(@posts), filename: "posts-#{Date.today}.csv" }
+    end
   end
 
   def new
@@ -26,5 +33,22 @@ class PostsController < ApplicationController
   
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def generate_csv(posts)
+    CSV.generate(headers: true) do |csv|
+      csv << ['投稿日時', '出来事', '感情', '課題の分離', '根拠', '別の考え方', '記入後の心境']
+      posts.each do |post|
+        csv << [
+          post.created_at.strftime('%Y-%m-%d %H:%M'),
+          post.event,
+          post.emotions.join(", "),
+          post.self_task,
+          post.other_task,
+          post.note,
+          post.mood_after
+        ]
+      end
+    end
   end
 end
