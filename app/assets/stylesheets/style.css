@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #121212; /* Dark black for the body */
+  background-color:#2c2c2c; /* Dark black for the body */
   color: #fff;
   font-family: Arial, sans-serif;
 }
@@ -13,7 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
-  background-color: #191919;
+  background-color: #2c2c2c; 
   color: #fff;
   width: 100%;
   max-width: 800px; /* PCでも一定の大きさを保つ */
@@ -31,7 +31,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -64,12 +64,13 @@ a:hover {
 
 .footer {
   background: linear-gradient(to top, #333333, #121212); /* Gradient from lighter black to dark black */
-  color: #fff;
+  color: #ffffff;
   text-align: center;
   padding: 10px 0;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  font-size: 0.4em;
 }
 
 .footer p {
@@ -89,18 +90,19 @@ a:hover {
 .posts-index,
 .new-post-form, 
 .form-container {
-  width: 100%;
+  width: 80%;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background-color: #1f1f1f;
+  background-color: #1a1a1a;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .page-title {
   color: #fff; /* White font color for page titles */
   margin-bottom: 40px;
+  text-align: center; /* Center align the title */
 }
 
 .post {
@@ -111,13 +113,14 @@ a:hover {
 }
 
 .post__item {
-  margin-bottom: 20px; /* More margin inside the post for better readability */
+  margin-bottom: 40px; /* More margin inside the post for better readability */
 }
 
 .title {
   color: #aaa; /* Dark gray for titles */
   margin: 0;
 }
+
 
 .content {
   color: #fff; /* White text for content */
@@ -128,7 +131,7 @@ a:hover {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .form-group label {
@@ -157,7 +160,7 @@ a:hover {
 }
 
 .actions {
-  text-align: left; /* Align submit button to the left */
+  text-align: center; /* Center align the submit button */
 }
 
 .btn-submit {
@@ -180,7 +183,7 @@ a:hover {
   margin-top: 50px;
 }
 
-.top-page .page-title {
+.top-page {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
