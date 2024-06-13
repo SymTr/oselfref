@@ -70,7 +70,7 @@ a:hover {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  font-size: 0.4em;
+  font-size: 0.6em;
 }
 
 .footer p {
@@ -176,31 +176,6 @@ a:hover {
   background-color: #444;
 }
 
-/* for top page css =stars=****************/
-
-.top-page {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.top-page {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.top-page p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-.button-group {
-  margin-top: 20px;
-}
-
-.button-group .btn {
-  margin: 5px;
-}
-/* for top page css =end= ****************/
 
 .error-alert {
   color: #fff;
