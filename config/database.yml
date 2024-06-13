@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: oselfref_rails7_development
+  database: oselfref_development
 
 test:
   <<: *default
@@ -16,7 +16,7 @@ test:
   username: root
   password:
   host: localhost
-  database: oselfref_rails7_test
+  database: oselfref_test
 
 production:
   <<: *default
