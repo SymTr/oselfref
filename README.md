@@ -18,11 +18,16 @@ Self Reflection App
 # URL
 https://oselfref.onrender.com
 
+# テスト用アカウント
 
-# 機能
-ユーザー登録とログイン
-投稿の作成、表示
-感情の記録と分析
+## Basic認証 
+- ID: admin 
+- pass:2222
+
+## Test用アカウント
+- email: test@test.com
+- pass: 3.14159
+
 
 
 # 使い方
@@ -31,6 +36,25 @@ https://oselfref.onrender.com
 
 感情が揺れた時、フォームを入力して自分の感情を認識できます。
 保存したデータはCSV出力できます。
+
+# アプリケーションを作成した背景
+
+友人も自身も、自分のこととなると冷静な判断ができなくなります。
+言語化し記録することでまずは内省をおこなう。
+さらにAIに分析してもらえば、自分自身の思考の癖がわかり
+どのように考えることが自分にとってよいのか教えてもらえます。
+
+# 機能（実装すみ）
+- ユーザー登録とログイン
+- 投稿の作成、一覧表示、CSV出力
+
+# 機能（実装予定）
+- CSV出力範囲設定
+- 感情の記録と分析
+- AIとの連携（API）
+
+# ER図
+![alt text](image.png)
 
 # テーブル設計
 
@@ -65,3 +89,22 @@ https://oselfref.onrender.com
 ### Association
 
 - belongs_to :user
+
+# 画面遷移図
+graph TD;
+    A[Top-page] --> B[Sign up];
+    A[Top-page] --> C[Log in];
+    B --> D[New Post];
+    B --> F[Posted List];
+    C --> D[New Post];
+    C --> F[Posted List];
+
+# 開発環境
+- Ruby on rails (version 7.0.0)
+- Ruby (version 3.2.0)
+
+# ローカルでの動作方法
+% git clone https://github.com/SymTr/oselfref.git
+% cd oselfref
+% bundle install
+% yarn install
