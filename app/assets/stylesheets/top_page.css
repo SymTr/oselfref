@@ -1,23 +1,35 @@
 /* app/assets/stylesheets/top_page.css */
+body {
+  background-color: #2c2c2c; /* Slightly lighter black for the body */
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #2c2c2c; /* Matching the body background color */
 }
 
 .page-title {
   text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 30px;
   color: #fff;
 }
 
-p {
-  font-size: 1.2em;
-  color: #ccc;
-  margin-bottom: 20px;
+.upside-down {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 30px;
+  transform: rotate(180deg); /* 180度回転させて上下反転 */
 }
+
+.user-name {
+  font-size: 15px;
+  color: #fff;
+  margin-top: 100px;
+} 
 
 .button-group {
   display: flex;
@@ -41,21 +53,21 @@ p {
 }
 
 .info-section {
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 20px;
-  background-color: #1f1f1f;
+  background-color:#1a1a1a; /* Darker black for content boxes */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);/* Slightly darker shadow */
 }
 
 .info-section h2 {
-  font-size: 1.8em;
+  font-size: 20px;
   color: #fff;
   margin-bottom: 10px;
 }
 
 .info-section p {
-  font-size: 1.1em;
+  font-size: 15px;
   line-height: 1.5;
   color: #ccc;
 }
