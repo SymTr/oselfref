@@ -1,11 +1,11 @@
 <!-- app/views/homes/index.html.erb -->
 <div class="container top-page">
-  <h1 class="page-title">うよみてえかをたかみのいかせ</h1>
-  <h1 class="page-title">せかいのみかたをかえてみよう</h1>
+  <div class="upside-down">「うよみてえかをたかみのいかせ」</div>
+  <div class="page-title">「せかいのみかたをかえてみよう」</div>
   <% if user_signed_in? %>
-    <p>
-      Welcome, <%= current_user.nickname %>!
-    </p>
+    <div class="user-name">
+        Welcome, <%= current_user.nickname %>さん!
+    </div>
   <% end %>
 
   <div class="info-section">
@@ -15,11 +15,12 @@
 
   <div class="info-section">
     <h2>How to use this app</h2>
-    <p>うれしい、悲しい、etc. こころが動いた瞬間のできごとを記録しましょう</p>
+    <p>①こころが動いた瞬間のできごとを記録しましょう</p>
+    <p>②AIでデータを分析し、自己理解を深めましょう</p>
   </div>
 
   <div class="info-section">
     <h2>Story of the Developer</h2>
-    <p>Detail about how the app was developed and the inspiration behind it.</p>
+    <p>このアプリができるまで</p>
   </div>
 </div>
