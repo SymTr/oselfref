@@ -20,7 +20,8 @@ body {
 }
 
 .upside-down {
-  margin-top: 60px;
+  margin-top: 50px;
+  margin-bottom: 10px;
   text-align: center;
   font-size: 30px;
   transform: rotate(180deg); /* 180度回転させて上下反転 */
@@ -74,27 +75,8 @@ body {
   color: #ccc;
 }
 
-/* for top page css =stars=****************/
  
 .top-page {
   text-align: center;
   margin-top: 50px;
 }
-/* 
-.top-page {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.top-page p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-.button-group {
-  margin-top: 20px;
-}
-
-.button-group .btn {
-  margin: 5px;
-} */
