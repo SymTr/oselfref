@@ -79,4 +79,3 @@ gem 'devise'
 group :production do
   gem 'pg'
 end
-gem 'rails-html-sanitizer', '~> 1.6'
