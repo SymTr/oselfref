@@ -80,4 +80,4 @@ group :production do
   gem 'pg'
 end
 
-gem 'webauthn', '~> 3.1'
+gem 'webauthn', '~> 3.0'
