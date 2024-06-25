@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :passkeys, only: [:new, :create, :index, :destroy] do
+    post 'callback', on: :collection
+  end
+
+  post 'users/passkey_authenticate', to: 'users/sessions#passkey_authenticate'
+
   # Define root path
   root to: 'homes#index'
 end

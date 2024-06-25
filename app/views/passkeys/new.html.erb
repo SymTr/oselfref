@@ -1,0 +1,40 @@
+<!-- app/views/passkeys/new.html.erb -->
+<h2>Register New Passkey</h2>
+
+<%= form_with(model: @passkey, local: true, data: { controller: 'passkey-registration' }) do |f| %>
+  <%= f.submit "Register Passkey", data: { action: 'click->passkey-registration#register' } %>
+<% end %>
+
+<!-- app/views/passkeys/index.html.erb -->
+<h2>Your Passkeys</h2>
+
+<% if @passkeys.any? %>
+  <ul>
+    <% @passkeys.each do |passkey| %>
+      <li>
+        Passkey created on <%= passkey.created_at.to_s(:long) %>
+        <%= button_to "Delete", passkey_path(passkey), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You haven't registered any passkeys yet.</p>
+<% end %>
+
+<%= link_to "Register New Passkey", new_passkey_path %>
+
+<!-- app/views/devise/sessions/new.html.erb -->
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { controller: 'passkey-authentication' }) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", data: { passkey_authentication_target: 'email' } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in with Passkey", data: { action: 'click->passkey-authentication#authenticate' } %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
