@@ -1,0 +1,114 @@
+<%# /Users/tsurunosayoribi/projects/oselfref/app/views/passkeys/new.html.erb %>
+<div class="auth-form" data-controller="passkey-registration">
+  <h3 class="auth-title">新しいパスキーの登録</h3>
+
+  <%= form_with(model: @passkey, local: true, data: { action: "submit->passkey-registration#register" }) do |f| %>
+    <div class="auth-form-group">
+      <%= f.label :label, "パスキーの名前" %><br />
+      <%= f.text_field :label, class: "auth-form-control", required: true, data: { passkey_registration_target: "label" } %>
+    </div>
+
+    <div class="auth-actions">
+      <%= f.submit "パスキーを登録", class: "auth-btn-submit", id: "register-passkey" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    try {
+      const response = await fetch('/passkeys/new', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch options');
+      }
+
+      const { publicKey } = await response.json();
+      
+      // Convert challenge to ArrayBuffer
+      publicKey.challenge = base64URLStringToBuffer(publicKey.challenge);
+      publicKey.user.id = base64URLStringToBuffer(publicKey.user.id);
+      if (publicKey.excludeCredentials) {
+        publicKey.excludeCredentials = publicKey.excludeCredentials.map(credential => {
+          return {
+            ...credential,
+            id: base64URLStringToBuffer(credential.id)
+          };
+        });
+      }
+
+      const credential = await navigator.credentials.create({ publicKey });
+      
+      const credentialResponse = {
+        id: credential.id,
+        rawId: bufferToBase64URLString(credential.rawId),
+        type: credential.type,
+        response: {
+          attestationObject: bufferToBase64URLString(credential.response.attestationObject),
+          clientDataJSON: bufferToBase64URLString(credential.response.clientDataJSON)
+        }
+      };
+
+      const verifyResponse = await fetch('/passkeys', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({
+          credential: credentialResponse,
+          passkey: { label: document.querySelector('#passkey_label').value }
+        })
+      });
+      
+      if (!verifyResponse.ok) {
+        const errorData = await verifyResponse.json();
+        throw new Error(errorData.message || 'Failed to verify credential');
+      }
+
+      const result = await verifyResponse.json();
+      if (result.status === 'success') {
+        alert('パスキーが正常に登録されました！');
+        window.location.href = '/passkeys';
+      } else {
+        alert('パスキーの登録に失敗しました: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('パスキーの登録中にエラーが発生しました: ' + error.message);
+    }
+  });
+});
+
+function base64URLStringToBuffer(base64URLString) {
+  const base64 = base64URLString.replace(/-/g, '+').replace(/_/g, '/');
+  const paddedBase64 = base64.padEnd(base64.length + (4 - base64.length % 4) % 4, '=');
+  const binary = atob(paddedBase64);
+  const buffer = new ArrayBuffer(binary.length);
+  const view = new Uint8Array(buffer);
+  for (let i = 0; i < binary.length; i++) {
+    view[i] = binary.charCodeAt(i);
+  }
+  return buffer;
+}
+
+function bufferToBase64URLString(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = '';
+  for (let i = 0; i < bytes.byteLength; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  const base64 = btoa(binary);
+  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+</script>

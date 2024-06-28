@@ -1,0 +1,22 @@
+<%# /Users/tsurunosayoribi/projects/oselfref/app/views/passkeys/index.html.erb %>
+<div class="auth-form">
+  <h3 class="auth-title">登録済みのパスキー</h3>
+
+  <% if @passkeys.exists? %>
+    <ul class="passkey-list">
+      <% @passkeys.each do |passkey| %>
+        <li class="passkey-item">
+          <span><%= passkey.label %></span>
+          <span>作成日: <%= passkey.created_at.strftime("%Y年%m月%d日 %H時%M分") %></span>
+          <%= button_to "削除", passkey_path(passkey), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "auth-btn-delete" %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>登録済みのパスキーはありません。</p>
+  <% end %>
+
+  <div class="auth-actions">
+    <%= link_to "新しいパスキーを登録", new_passkey_path, class: "auth-btn-submit" %>
+  </div>
+</div>

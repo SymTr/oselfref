@@ -9,6 +9,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  
+  # WebAuthn認証のための設定を追加
+  config.warden do |manager|
+    manager.default_strategies(scope: :user).unshift :webauthn
+    manager.serialize_into_session(&:webauthn_id)
+    manager.serialize_from_session { |id| User.find_by(id: id) }
+  end
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -276,7 +284,19 @@ Devise.setup do |config|
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
-  #
+  # WebAuthn認証のための設定
+  config.warden do |manager|
+    manager.default_strategies(scope: :user).unshift :webauthn
+    manager.serialize_into_session(&:webauthn_id)
+    manager.serialize_from_session { |id| User.find_by(id: id) }
+  end
+
+  # WebAuthn用のルーティングを有効にする
+  config.add_module :webauthn_authenticatable, controller: :passkeys, route: :passkeys
+
+   # WebAuthn戦略の読み込み
+  require 'devise/strategies/webauthn'
+  
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
@@ -310,4 +330,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  
+  
 end

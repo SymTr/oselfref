@@ -1,11 +1,11 @@
 # spec/requests/posts_spec.rb
 require 'rails_helper'
 
-RSpec.describe "PostsController", type: :request do
+RSpec.describe 'PostsController', type: :request do
   let(:user) { create(:user) }
-  let!(:post_record) { create(:post, user: user) }
-#let は遅延評価され、呼び出されたときに初めてコードブロックが評価される
- 
+  let!(:post_record) { create(:post, user:) }
+  # let は遅延評価され、呼び出されたときに初めてコードブロックが評価される
+
   before do
     sign_in user
   end
@@ -37,9 +37,9 @@ RSpec.describe "PostsController", type: :request do
   describe 'POST #create' do
     context '有効なパラメータの場合' do
       it '新しい投稿を作成する' do
-        expect {
+        expect do
           post posts_path, params: { post: attributes_for(:post) }
-        }.to change(Post, :count).by(1)
+        end.to change(Post, :count).by(1)
       end
 
       it '投稿一覧にリダイレクトする' do

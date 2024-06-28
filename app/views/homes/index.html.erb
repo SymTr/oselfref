@@ -5,6 +5,7 @@
   <% if user_signed_in? %>
     <div class="user-name">
         Welcome, <%= current_user.nickname %>さん！
+         <%= link_to "Passkeys設定", passkeys_path, class: "btn btn-secondary" %>
     </div>
     <% else %>
     <div class="user-name">
