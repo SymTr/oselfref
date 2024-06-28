@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  devise_scope :user do
+    post '/users/passkey_authenticate', to: 'users/sessions#passkey_authenticate'
+  end
+
   resources :posts, only: [:index, :new, :create] do
     collection do
       get :index, defaults: { format: 'html' }
@@ -15,8 +19,6 @@ Rails.application.routes.draw do
   resources :passkeys, only: [:new, :create, :index, :destroy] do
     post 'callback', on: :collection
   end
-
-  post 'users/passkey_authenticate', to: 'users/sessions#passkey_authenticate'
 
   # Define root path
   root to: 'homes#index'

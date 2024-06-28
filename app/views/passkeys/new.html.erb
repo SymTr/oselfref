@@ -1,40 +1,114 @@
-<!-- app/views/passkeys/new.html.erb -->
-<h2>Register New Passkey</h2>
+<%# /Users/tsurunosayoribi/projects/oselfref/app/views/passkeys/new.html.erb %>
+<div class="auth-form" data-controller="passkey-registration">
+  <h3 class="auth-title">新しいパスキーの登録</h3>
 
-<%= form_with(model: @passkey, local: true, data: { controller: 'passkey-registration' }) do |f| %>
-  <%= f.submit "Register Passkey", data: { action: 'click->passkey-registration#register' } %>
-<% end %>
+  <%= form_with(model: @passkey, local: true, data: { action: "submit->passkey-registration#register" }) do |f| %>
+    <div class="auth-form-group">
+      <%= f.label :label, "パスキーの名前" %><br />
+      <%= f.text_field :label, class: "auth-form-control", required: true, data: { passkey_registration_target: "label" } %>
+    </div>
 
-<!-- app/views/passkeys/index.html.erb -->
-<h2>Your Passkeys</h2>
+    <div class="auth-actions">
+      <%= f.submit "パスキーを登録", class: "auth-btn-submit", id: "register-passkey" %>
+    </div>
+  <% end %>
+</div>
 
-<% if @passkeys.any? %>
-  <ul>
-    <% @passkeys.each do |passkey| %>
-      <li>
-        Passkey created on <%= passkey.created_at.to_s(:long) %>
-        <%= button_to "Delete", passkey_path(passkey), method: :delete, data: { confirm: "Are you sure?" } %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>You haven't registered any passkeys yet.</p>
-<% end %>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    try {
+      const response = await fetch('/passkeys/new', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch options');
+      }
 
-<%= link_to "Register New Passkey", new_passkey_path %>
+      const { publicKey } = await response.json();
+      
+      // Convert challenge to ArrayBuffer
+      publicKey.challenge = base64URLStringToBuffer(publicKey.challenge);
+      publicKey.user.id = base64URLStringToBuffer(publicKey.user.id);
+      if (publicKey.excludeCredentials) {
+        publicKey.excludeCredentials = publicKey.excludeCredentials.map(credential => {
+          return {
+            ...credential,
+            id: base64URLStringToBuffer(credential.id)
+          };
+        });
+      }
 
-<!-- app/views/devise/sessions/new.html.erb -->
-<h2>Log in</h2>
+      const credential = await navigator.credentials.create({ publicKey });
+      
+      const credentialResponse = {
+        id: credential.id,
+        rawId: bufferToBase64URLString(credential.rawId),
+        type: credential.type,
+        response: {
+          attestationObject: bufferToBase64URLString(credential.response.attestationObject),
+          clientDataJSON: bufferToBase64URLString(credential.response.clientDataJSON)
+        }
+      };
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { controller: 'passkey-authentication' }) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", data: { passkey_authentication_target: 'email' } %>
-  </div>
+      const verifyResponse = await fetch('/passkeys', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({
+          credential: credentialResponse,
+          passkey: { label: document.querySelector('#passkey_label').value }
+        })
+      });
+      
+      if (!verifyResponse.ok) {
+        const errorData = await verifyResponse.json();
+        throw new Error(errorData.message || 'Failed to verify credential');
+      }
 
-  <div class="actions">
-    <%= f.submit "Log in with Passkey", data: { action: 'click->passkey-authentication#authenticate' } %>
-  </div>
-<% end %>
+      const result = await verifyResponse.json();
+      if (result.status === 'success') {
+        alert('パスキーが正常に登録されました！');
+        window.location.href = '/passkeys';
+      } else {
+        alert('パスキーの登録に失敗しました: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('パスキーの登録中にエラーが発生しました: ' + error.message);
+    }
+  });
+});
 
-<%= render "devise/shared/links" %>
+function base64URLStringToBuffer(base64URLString) {
+  const base64 = base64URLString.replace(/-/g, '+').replace(/_/g, '/');
+  const paddedBase64 = base64.padEnd(base64.length + (4 - base64.length % 4) % 4, '=');
+  const binary = atob(paddedBase64);
+  const buffer = new ArrayBuffer(binary.length);
+  const view = new Uint8Array(buffer);
+  for (let i = 0; i < binary.length; i++) {
+    view[i] = binary.charCodeAt(i);
+  }
+  return buffer;
+}
+
+function bufferToBase64URLString(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = '';
+  for (let i = 0; i < bytes.byteLength; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  const base64 = btoa(binary);
+  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+</script>

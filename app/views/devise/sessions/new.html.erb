@@ -1,7 +1,9 @@
 <!-- app/views/devise/sessions/new.html.erb -->
-<div class="auth-form">
+<div class="auth-form" data-controller="passkey-authentication">
   <h3 class="auth-title">ログイン</h3>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+    
+    <%#エラーメッセージ  %>
     <% if resource.errors.any? %>
       <div class="error-alert">
         <ul>
@@ -15,10 +17,10 @@
         <p class="error-message"><%= flash[:alert] %></p>
       </div>
     <% end %>
-
+    <%#**************************************************** %>
     <div class="auth-form-group">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-form-control" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-form-control", data: { passkey_authentication_target: "email" } %>
     </div>
 
     <div class="auth-form-group">
@@ -32,9 +34,12 @@
         <%= f.label :remember_me, class: "auth-form-check-label" %>
       </div>
     <% end %>
-
+    
+    <%= hidden_field_tag :password_login, true %>
+    
     <div class="auth-actions">
-      <%= f.submit "ログイン", class: "auth-btn-submit" %>
+      <%= f.submit "パスワードでログイン", class: "auth-btn-submit" %>
+      <%= button_tag "パスキーでログイン", type: "button", class: "auth-btn-submit", data: { action: "click->passkey-authentication#authenticate" } %>
     </div>
   <% end %>
   <%= link_to "新規登録はこちら", new_user_registration_path, class: "post" %>

@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { within: 6..128 }
 
   def webauthn_id
-    WebAuthn.generate_user_id(email)
+    # OpenSSL::Digest::SHA256.digestの代わりに、Base64エンコードされたランダムな32バイトの文字列を使用
+    # WebAuthnの仕様により、ユーザーハンドルは64バイトを超えないようにする
+    @webauthn_id ||= WebAuthn.generate_user_id
   end
 end
