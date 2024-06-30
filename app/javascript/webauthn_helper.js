@@ -1,3 +1,5 @@
+// app/javascript/webauthn_helper.js
+
 export function base64URLStringToBuffer(base64URLString) {
   const base64 = base64URLString.replace(/-/g, '+').replace(/_/g, '/');
   const padLength = (4 - (base64.length % 4)) % 4;
