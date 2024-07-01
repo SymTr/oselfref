@@ -1,5 +1,4 @@
-// ラーの作成:
-app/javascript/controllers/passkey_authentication_controller.js
+// app/javascript/controllers/passkey_authentication_controller.js
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@github/webauthn-json"
 
