@@ -1,6 +1,7 @@
 // app/javascript/controllers/passkey_authentication_controller.js
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@github/webauthn-json"
+import { base64URLStringToBuffer, bufferToBase64URLString } from "helpers/webauthn_helper"
 
 export default class extends Controller {
   static targets = [ "email" ]
