@@ -76,6 +76,7 @@ https://oselfref.onrender.com
 ### Association
 
 - has_many :posts
+- has_many :passkeys
 
 ## posts テーブル
 
@@ -95,7 +96,22 @@ https://oselfref.onrender.com
 
 - belongs_to :user
 
-# 画面遷移図
+## passkeys テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| external_id | string     | null: false, unique: true      |
+| public_key  | string     | null: false                    |
+| sign_count  | integer    | null: false, default: 0        |
+| label       | string     | null: false, default: "My Passkey" |
+| created_at  | datetime   | null: false                    |
+| updated_at  | datetime   | null: false                    |
+
+### Association
+- belongs_to :user
+
+# 画面遷移図（passkey 実装後修正）
 ![alt text](image-1.png)
 graph TD;
     A[Top-page] --> B[Sign up];
@@ -104,6 +120,8 @@ graph TD;
     B --> F[Posted List];
     C --> D[New Post];
     C --> F[Posted List];
+    B --> G[Passkey Registration];
+    C --> G[Passkey Registration];
 
 # 開発環境
 - Ruby on rails (version 7.0.0)
@@ -127,11 +145,6 @@ SQL インジェクション対策
 - 手動設定
 ログ出力防止
 パスキー認証
-
-
-## 制作時間
-約96時間（12日間）で一旦公開(2024.6.13)
-以降は、セキュリティ対策から追加実装中！
 
 
 
