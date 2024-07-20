@@ -59,7 +59,11 @@ https://oselfref.onrender.com
 - プライバシーポリシー
 
 # ER図
-![alt text](image.png)
+![ER図](./ER.drawio.png)
+
+# インフラ構成図
+![インフラ構成図](./SystemD.drawio.png)
+
 
 # テーブル設計
 
