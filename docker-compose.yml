@@ -10,12 +10,10 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: mysql2://root:password@db/myapp_development
-      RAILS_ENV: development
+      DATABASE_URL: postgres://postgres:password@db/myapp_development
   db:
-    image: mysql:8.0
-    platform: linux/arm64/v8
+    image: postgres:14
     volumes:
-      - ./tmp/db:/var/lib/mysql
+      - ./tmp/db:/var/lib/postgresql/data
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      POSTGRES_PASSWORD: password
