@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_06_25_123744) do
-  create_table "passkeys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "passkeys", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "external_id", null: false
     t.string "public_key", null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_25_123744) do
     t.index ["user_id"], name: "index_passkeys_on_user_id"
   end
 
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.text "event", null: false
     t.text "self_task", null: false
     t.text "other_task", null: false
@@ -36,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_25_123744) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
