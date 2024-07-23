@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index]
 
   def index
-    @posts = current_user.posts.order(created_at: :desc)
+    @posts = current_user.posts.order(created_at: :desc).page(params[:page]).per(10) # ページネーションを追加
 
     respond_to do |format|
       format.html
