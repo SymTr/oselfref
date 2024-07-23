@@ -16,7 +16,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'devise'
 gem 'webauthn', '~> 3.0'
-
+gem 'kaminari'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
