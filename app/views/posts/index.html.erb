@@ -47,11 +47,11 @@
 
     
     <!-- ページネーションは投稿ループの外に記載する -->
-    <nav aria-label="Page navigation">
-      <ul class="pagination justify-content-center">
-        <%= paginate @posts, theme: 'bootstrap-4' %>
-      </ul>
-    </nav>
+    <div class="pagination-wrapper">
+      <nav class="pagination">
+        <%= paginate @posts %>
+      </nav>
+    </div>
   <% else %>
     <p>投稿はありません</p>
   <% end %>
