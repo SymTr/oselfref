@@ -1,4 +1,4 @@
-/* app/assets/stylesheets/style.css */
+/* app/assets/stylesheets/style.css 　投稿一覧CSS*/
 
 body {
   margin: 0;
@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
+  padding-top: calc(1rem + 60px); /* ヘッダーの高さ分のパディングを追加 */
   background-color: #2c2c2c; 
   color: #fff;
   width: 100%;
@@ -20,11 +21,17 @@ body {
   margin: 0 auto;
   min-height: 100vh;
 }
+
 /* スマホ閲覧前提のデザイン　おわり ***********/
 
 .header {
-  background: linear-gradient(to bottom, #333333, #121212); /* Gradient from lighter black to dark black */
+  background: linear-gradient(to bottom, #333333, #121212);
   padding: 10px 0;
+  position: fixed; /* 固定位置に設定 */
+  top: 0; /* 画面の上端に配置 */
+  left: 0; /* 画面の左端に配置 */
+  width: 100%; /* 幅を100%に設定 */
+  z-index: 1000; /* 他の要素の上に表示されるようにする */
 }
 
 .header__bar {
@@ -34,6 +41,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+  z-index: 1000;
 }
 
 .header h3 a,
@@ -75,10 +83,9 @@ a:hover {
   color: #ffffff;
   text-align: center;
   padding: 10px 0;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
+  width: 100%;
   font-size: 0.6em;
+  
 }
 
 .footer p {
