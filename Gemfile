@@ -17,7 +17,6 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'webauthn', '~> 3.0'
 gem 'kaminari'
-gem 'bootstrap', '~> 5.1.3'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
