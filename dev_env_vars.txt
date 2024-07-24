@@ -1,0 +1,11 @@
+BUNDLE_APP_CONFIG=/usr/local/bundle
+BUNDLE_SILENCE_ROOT_WARNING=1
+DATABASE_URL=postgres://postgres:password@db/myapp_development
+GEM_HOME=/usr/local/bundle
+HOME=/root
+HOSTNAME=7ee506a2d8d5
+LANG=C.UTF-8
+PATH=/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUBY_DOWNLOAD_SHA256=ca10d017f8a1b6d247556622c841fc56b90c03b1803f87198da1e4fd3ec3bf2a
+RUBY_MAJOR=3.1
+RUBY_VERSION=3.1.2
