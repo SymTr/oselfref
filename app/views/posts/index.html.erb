@@ -5,15 +5,6 @@
     <%= link_to "CSV出力", posts_path(format: :csv), class: "btn btn-secondary" %>
   </div>
 
-   <!-- デバッグ情報の追加 -->
-    <div class="debug-info">
-      <p>Total count: <%= @posts.total_count %></p>
-      <p>Current page: <%= @posts.current_page %></p>
-      <p>Total pages: <%= @posts.total_pages %></p>
-    </div>
-
-
-
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="post">

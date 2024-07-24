@@ -3,6 +3,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "kaminari"
+import "bootstrap"
 
 import { base64URLStringToBuffer, bufferToBase64URLString } from 'helpers/webauthn_helper'
 
