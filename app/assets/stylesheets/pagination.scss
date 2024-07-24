@@ -1,0 +1,21 @@
+@import "bootstrap";
+
+// ページネーションのカスタムスタイル
+.pagination {
+  .page-link {
+    background-color: #333;
+    border-color: #444;
+    color: #fff;
+    
+    &:hover {
+      background-color: #444;
+      border-color: #555;
+      color: #fff;
+    }
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+}

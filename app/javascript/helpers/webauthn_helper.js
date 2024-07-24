@@ -21,3 +21,4 @@ export function bufferToBase64URLString(buffer) {
   }
   return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
 }
+

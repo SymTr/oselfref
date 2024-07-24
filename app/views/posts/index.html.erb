@@ -4,6 +4,7 @@
   <div class="button-group">
     <%= link_to "CSV出力", posts_path(format: :csv), class: "btn btn-secondary" %>
   </div>
+
   <% if @posts.any? %>
     <% @posts.each do |post| %>
       <div class="post">
@@ -40,10 +41,15 @@
         <div class="post__item">
           <p class="title"><strong>記入後の心境:</strong></p>
           <p class="content"><%= post.mood_after %></p>
-        </div>
-
+        </div>  
       </div>
     <% end %>
+
+    
+    <!-- ページネーションは投稿ループの外に記載する -->
+    <div class="pagination">
+      <%= paginate @posts %>
+    </div>
   <% else %>
     <p>投稿はありません</p>
   <% end %>

@@ -4,12 +4,12 @@
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
-      <%= form.label :event, "何がありましたか？起きたこと（事実）と自分の考えを書いてみましょう *" %>
+      <%= form.label :event, "何がありましたか？起きたこと（事実）と自分の考えを書いてください *" %>
       <%= form.text_area :event, rows: 5 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選びましょう *" %>
+      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んでください *" %>
        <div class="checkbox-grid">
         <%= form.check_box :emotions, { multiple: true }, '喜び', nil %> 喜び
         <%= form.check_box :emotions, { multiple: true }, '悲しみ', nil %> 悲しみ
@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :self_task, "自分の課題（自分には変えられること）と他者の課題（自分には変えられないこと）は何ですか？ *" %>
+      <%= form.label :self_task, "自分の課題（自分が変えられること）、他者の課題（自分には変えられないこと）は何ですか？ *" %>
       <%= form.text_area :self_task, rows: 5 %>
     </div>
 
@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :note, "さらに他の考え方はできそうでしょうか？自由に記述してみましょう" %>
+      <%= form.label :note, "さらに他の考え方はできますか？自由に記述してみましょう" %>
       <%= form.text_area :note, rows: 5 %>
     </div>
 

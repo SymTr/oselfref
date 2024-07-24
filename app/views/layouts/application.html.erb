@@ -13,8 +13,9 @@
        <%# if とその次の行は、devise専用CSSの読み込みを設定している %>
     <% end %>
     <%= stylesheet_link_tag "top_page", "data-turbo-track": "reload" %>
+    <%= javascript_import_module_tag "helpers/webauthn_helper" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag "webauthn_helper", "data-turbo-track": "reload", crossorigin: "anonymous" %>
   </head>
 
   <body>
