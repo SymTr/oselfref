@@ -47,8 +47,10 @@
 
     
     <!-- ページネーションは投稿ループの外に記載する -->
-    <div class="pagination">
-      <%= paginate @posts %>
+    <div class="pagination-wrapper">
+      <nav class="pagination">
+        <%= paginate @posts %>
+      </nav>
     </div>
   <% else %>
     <p>投稿はありません</p>
