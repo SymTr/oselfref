@@ -1,4 +1,10 @@
-/* app/assets/stylesheets/style.css 　投稿一覧CSS*/
+/* app/assets/stylesheets/style.css 　新規投稿と投稿一覧CSS*/
+
+
+/* 全体的なフォントサイズの調整 */
+html {
+  font-size: 16px; /* ベースフォントサイズ */
+}
 
 body {
   margin: 0;
@@ -6,9 +12,10 @@ body {
   background-color:#2c2c2c; /* Dark black for the body */
   color: #fff;
   font-family: Arial, sans-serif;
+  font-size: 1rem; /* ボディのフォントサイズをベースに設定 */
 }
 
-/* スマホ閲覧前提のデザイン　はじめ ***********/
+/* スマホ閲覧前提のデザイン　はじめ ****************/
 .body__container {
   display: flex;
   flex-direction: column;
@@ -21,9 +28,9 @@ body {
   margin: 0 auto;
   min-height: 100vh;
 }
+/* スマホ閲覧前提のデザイン　おわり ****************/
 
-/* スマホ閲覧前提のデザイン　おわり ***********/
-
+/* Header */
 .header {
   background: linear-gradient(to bottom, #333333, #121212);
   padding: 10px 0;
@@ -32,6 +39,7 @@ body {
   left: 0; /* 画面の左端に配置 */
   width: 100%; /* 幅を100%に設定 */
   z-index: 1000; /* 他の要素の上に表示されるようにする */
+  font-size: 0.9rem; /* ヘッダー全体のフォントサイズを小さく */
 }
 
 .header__bar {
@@ -42,6 +50,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   z-index: 1000;
+  flex-wrap: nowrap; /* 折り返しを防ぐ! */
 }
 
 .header h3 a,
@@ -57,10 +66,12 @@ body {
 .header-link {
   color: #fff;
   text-decoration: none;
-  padding: 5px 10px;
   margin: 0 5px;
   border-radius: 4px;
   transition: background-color 0.3s;
+  font-size: 0.8rem; /* ヘッダーリンクのフォントサイズを70%程度に */
+  padding: 3px 8px; /* パディングを少し縮小 */
+  white-space: nowrap; 
 }
 
 .header-link:hover {
@@ -78,6 +89,7 @@ a:hover {
 }
 /* メニュー　サインアウト時 =end= ************/
 
+/* Footer */
 .footer {
   background: linear-gradient(to top, #333333, #121212); /* Gradient from lighter black to dark black */
   color: #ffffff;
@@ -92,6 +104,7 @@ a:hover {
   margin: 0;
 }
 
+/* Layout */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -102,9 +115,11 @@ a:hover {
   max-width: 50%;
 }
 
+/* Content containers */
 .posts-index,
 .new-post-form, 
-.form-container {
+.form-container
+.home-page {
   width: 80%;
   max-width: 800px;
   margin: 40px auto;
@@ -112,47 +127,54 @@ a:hover {
   background-color: #1a1a1a;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
 }
 
 .page-title {
-  color: #fff; /* White font color for page titles */
-  margin-bottom: 40px;
-  text-align: center; /* Center align the title */
+  color: #fff; 
+  font-size: 1.5rem;  
+  margin-bottom: 1.5rem;
+  text-align: center; 
 }
 
+/* Post styles */
 .post {
   border-radius: 8px; /* Rounded corners */
-  padding: 20px;
-  margin-bottom: 40px; /* More space between posts */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  padding: 1rem; 
+  margin-bottom: 1.5rem; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .post__item {
-  margin-bottom: 40px; /* More margin inside the post for better readability */
+  margin-bottom: 1rem;  /* More margin inside the post for better readability */
 }
 
 .title {
   color: #aaa; /* Dark gray for titles */
   margin: 0;
+  font-size: 0.9rem; 
 }
 
 
 .content {
-  color: #fff; /* White text for content */
+  color: #fff; 
   background-color: #000; /* Real dark black for content background */
-  padding: 10px;
+  font-size: 0.85rem; 
+  padding: 0.5rem; 
   margin-top: 5px; /* Space between title and content */
   border-radius: 4px; /* Slight rounding for content boxes */
 }
 
+/* Form styles */
 .form-group {
-  margin-bottom: 40px;
+  margin-bottom: 1.5rem;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
   color: #aaa;
+  font-size: 0.9rem;
 }
 
 .form-group textarea {
@@ -162,7 +184,7 @@ a:hover {
   border: 1px solid #444;
   border-radius: 4px;
   color: #fff;
-  font-size: 16px; 
+  font-size: 0.9rem; 
   letter-spacing: 0.12em;
 }
 
@@ -170,6 +192,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px; /* Add space between checkboxes */
+  font-size: 0.9rem;
 }
 
 .checkbox-item {
@@ -181,12 +204,13 @@ a:hover {
 }
 
 .btn-submit {
-  padding: 10px 20px;
+  padding:  0.5rem 1rem;
   background-color: #333333;
   border: 1px solid #444;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .btn-submit:hover {
@@ -197,4 +221,20 @@ a:hover {
 .error-alert {
   color: #fff;
   padding: 10px; 
+}
+
+/* Global link styles */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* New post form specific styles */
+.new-post-form .page-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
