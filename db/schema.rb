@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_25_123744) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_25_015623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,15 +27,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_25_123744) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text "event", null: false
+    t.text "situation", null: false
     t.text "self_task", null: false
-    t.text "other_task", null: false
+    t.text "others_task", null: false
     t.text "mood_after", null: false
-    t.text "note"
+    t.text "alternative_thinking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "emotions"
     t.bigint "user_id"
+    t.text "thoughts"
+    t.text "supporting_evidence"
+    t.text "contrary_evidence"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

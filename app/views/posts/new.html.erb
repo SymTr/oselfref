@@ -4,8 +4,8 @@
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
-      <%= form.label :event, "何がありましたか？起きたこと（事実）を書いてください *" %>
-      <%= form.text_area :event, rows: 3 %>
+      <%= form.label :situation, "何がありましたか？起きたこと（事実）を書いてください *" %>
+      <%= form.text_area :situation, rows: 3 %>
     </div>
     <div class="form-group">
       <%= form.label :thoughts, "その状況についてどう考えましたか？ *" %>
@@ -35,8 +35,8 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :other_task, "その考えを肯定する根拠は何ですか？ *" %>
-      <%= form.text_area :other_task, rows: 3 %>
+      <%= form.label :supporting_evidence, "その考えを肯定する根拠は何ですか？ *" %>
+      <%= form.text_area :supporting_evidence, rows: 3 %>
     </div>
 
     <div class="form-group">
@@ -45,8 +45,8 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :note, "他の考え方はできますか？自由に書いてみましょう" %>
-      <%= form.text_area :note, rows: 3 %>
+      <%= form.label :alternative_thinking, "他の考え方はできますか？自由に書いてみましょう" %>
+      <%= form.text_area :alternative_thinking, rows: 3 %>
     </div>
 
     <div class="form-group">
