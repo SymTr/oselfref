@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index]
 
   def index
-    @posts = current_user.posts.order(created_at: :desc).page(params[:page]).per(10) # ページネーションを追加
+    @posts = current_user.posts.order(created_at: :desc).page(params[:page]).per(10) # ページネーション
 
     respond_to do |format|
       format.html
@@ -29,8 +29,9 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:event, :emotions, :self_task, :other_task, :mood_after, :note,
-                                 emotions: []).merge(user_id: current_user.id)
+    params.require(:post).permit(:situation, :thoughts, :self_task, :others_task, 
+                                 :supporting_evidence, :contrary_evidence, 
+                                 :alternative_thinking, :mood_after, emotions: []).merge(user_id: current_user.id)
   end
 
   def move_to_index
@@ -39,15 +40,18 @@ class PostsController < ApplicationController
 
   def generate_csv(posts)
     CSV.generate(headers: true) do |csv|
-      csv << %w[投稿日時 出来事 感情 課題の分離 根拠 別の考え方 記入後の心境]
+      csv << %w[投稿日時 できごと 考え 感情 自分の課題 他者の課題 肯定する証拠 反する証拠 他の考え方 記入後の感情]
       posts.each do |post|
         csv << [
           post.created_at.strftime('%Y-%m-%d %H:%M'),
-          post.event,
+          post.situation,
+          post.thoughts,
           post.emotions.join(', '),
           post.self_task,
-          post.other_task,
-          post.note,
+          post.others_task,
+          post.supporting_evidence,
+          post.contrary_evidence,
+          post.alternative_thinking,
           post.mood_after
         ]
       end
