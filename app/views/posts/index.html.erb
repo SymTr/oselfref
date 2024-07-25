@@ -14,28 +14,44 @@
         </div>
         
         <div class="post__item">
-          <p class="title"><strong>出来事:</strong></p>
-          <p class="content"><%= post.event %></p>
+          <p class="title"><strong>できごと:</strong></p>
+          <p class="content"><%= post.situation %></p>
+        </div>
+
+         <div class="post__item">
+          <p class="title"><strong>考え:</strong></p>
+          <p class="content"><%= post.thoughts %></p>
         </div>
 
         <div class="post__item">
           <p class="title"><strong>感情:</strong></p>
-          <p class="content"><%= post.emotions %></p>
+          <p class="content"><%= post.emotions.join(', ') %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>課題の分離:</strong></p>
+          <div class="post__item">
+          <p class="title"><strong>自分の課題:</strong></p>
           <p class="content"><%= post.self_task %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>根拠:</strong></p>
-          <p class="content"><%= post.other_task %></p>
+          <p class="title"><strong>他者の課題:</strong></p>
+          <p class="content"><%= post.others_task %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>別の考え方:</strong></p>
-          <p class="content"><%= post.note %></p>
+          <p class="title"><strong>肯定する証拠:</strong></p>
+          <p class="content"><%= post.supporting_evidence %></p>
+        </div>
+
+        <div class="post__item">
+          <p class="title"><strong>反する証拠:</strong></p>
+          <p class="content"><%= post.contrary_evidence %></p>
+        </div>
+
+         <div class="post__item">
+          <p class="title"><strong>他の考え方:</strong></p>
+          <p class="content"><%= post.alternative_thinking %></p>
         </div>
 
         <div class="post__item">
