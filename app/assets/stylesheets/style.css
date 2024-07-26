@@ -27,6 +27,7 @@ body {
   max-width: 800px; /* PCでも一定の大きさを保つ */
   margin: 0 auto;
   min-height: 100vh;
+  padding-bottom: 60px;
 }
 /* スマホ閲覧前提のデザイン　おわり ****************/
 
@@ -94,15 +95,12 @@ a:hover {
   background: linear-gradient(to top, #333333, #121212); /* Gradient from lighter black to dark black */
   color: #ffffff;
   text-align: center;
-  padding: 10px 0;
-  width: 100%;
-  font-size: 0.6em;
-  
+  width: auto;
+  font-size: 0.8em;
+  margin-top: auto;
 }
 
-.footer p {
-  margin: 0;
-}
+
 
 /* Layout */
 .row {
@@ -122,12 +120,15 @@ a:hover {
 .home-page {
   width: 80%;
   max-width: 800px;
-  margin: 40px auto;
+  margin: 0;
   padding: 20px;
   background-color: #1a1a1a;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 0.9rem;
+  flex: 1; 
+  display: flex; 
+  flex-direction: column;
 }
 
 .page-title {
@@ -143,10 +144,11 @@ a:hover {
   padding: 1rem; 
   margin-bottom: 1.5rem; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  background-color: #1a1a1a;
 }
 
 .post__item {
-  margin-bottom: 1rem;  /* More margin inside the post for better readability */
+  margin-bottom: 1rem;  
 }
 
 .title {
@@ -190,14 +192,9 @@ a:hover {
 
 .checkbox-grid {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px; /* Add space between checkboxes */
   font-size: 0.9rem;
   color: #aaa;
-}
-
-.checkbox-item {
-  width: 48%; /* Each checkbox item takes 48% of the width to allow for 2 per row */
 }
 
 .actions {
