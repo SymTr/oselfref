@@ -9,37 +9,53 @@
     <% @posts.each do |post| %>
       <div class="post">
         <div class="post__item">
-          <p class="title"><strong>投稿日時:</strong></p>
+          <p class="title">投稿日時:</p>
               <p class="content"><%= post.created_at.strftime('%Y/%m/%d. %H:%M') %></p>
         </div>
         
         <div class="post__item">
-          <p class="title"><strong>出来事:</strong></p>
-          <p class="content"><%= post.event %></p>
+          <p class="title">できごと:</p>
+          <p class="content"><%= post.situation %></p>
+        </div>
+
+         <div class="post__item">
+          <p class="title">考え:</p>
+          <p class="content"><%= post.thoughts %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>感情:</strong></p>
-          <p class="content"><%= post.emotions %></p>
+          <p class="title">感情:</p>
+          <p class="content"><%= post.emotions.join(', ') %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>課題の分離:</strong></p>
+          <div class="post__item">
+          <p class="title">自分の課題:</p>
           <p class="content"><%= post.self_task %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>根拠:</strong></p>
-          <p class="content"><%= post.other_task %></p>
+          <p class="title">他者の課題:</p>
+          <p class="content"><%= post.others_task %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>別の考え方:</strong></p>
-          <p class="content"><%= post.note %></p>
+          <p class="title">肯定する証拠:</p>
+          <p class="content"><%= post.supporting_evidence %></p>
         </div>
 
         <div class="post__item">
-          <p class="title"><strong>記入後の心境:</strong></p>
+          <p class="title">反する証拠:</p>
+          <p class="content"><%= post.contrary_evidence %></p>
+        </div>
+
+         <div class="post__item">
+          <p class="title">他の考え方:</p>
+          <p class="content"><%= post.alternative_thinking %></p>
+        </div>
+
+        <div class="post__item">
+          <p class="title">記入後の心境:</p>
           <p class="content"><%= post.mood_after %></p>
         </div>  
       </div>

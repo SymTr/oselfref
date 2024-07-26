@@ -4,10 +4,13 @@
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
-      <%= form.label :event, "何がありましたか？起きたこと（事実）と自分の考えを書いてください *" %>
-      <%= form.text_area :event, rows: 5 %>
+      <%= form.label :situation, "何がありましたか？起きたこと（事実）を書いてください *" %>
+      <%= form.text_area :situation, rows: 3 %>
     </div>
-
+    <div class="form-group">
+      <%= form.label :thoughts, "その状況についてどう考えましたか？ *" %>
+      <%= form.text_area :thoughts, rows: 3 %>
+    </div>
     <div class="form-group">
       <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んでください *" %>
        <div class="checkbox-grid">
@@ -22,18 +25,28 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :self_task, "自分の課題（自分が変えられること）、他者の課題（自分には変えられないこと）は何ですか？ *" %>
-      <%= form.text_area :self_task, rows: 5 %>
+      <%= form.label :self_task, "自分の課題（自分が変えられること）は何ですか？ *" %>
+      <%= form.text_area :self_task, rows: 3 %>
+    </div>
+
+     <div class="form-group">
+      <%= form.label :others_task, "他者の課題（自分には変えられないこと）は何ですか？ *" %>
+      <%= form.text_area :others_task, rows: 3 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :other_task, "上記の考えの根拠はありますか？もし上記の考えが違っているとしたらその根拠はありますか？ *" %>
-      <%= form.text_area :other_task, rows: 5 %>
+      <%= form.label :supporting_evidence, "その考えを肯定する根拠は何ですか？ *" %>
+      <%= form.text_area :supporting_evidence, rows: 3 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :note, "さらに他の考え方はできますか？自由に記述してみましょう" %>
-      <%= form.text_area :note, rows: 5 %>
+      <%= form.label :contrary_evidence, "その考えに反する根拠は何ですか？ *" %>
+      <%= form.text_area :contrary_evidence, rows: 3 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :alternative_thinking, "他の考え方はできますか？自由に書いてみましょう" %>
+      <%= form.text_area :alternative_thinking, rows: 3 %>
     </div>
 
     <div class="form-group">
