@@ -1,10 +1,31 @@
 # README
 
-# アプリケーション名
-Self Reflection App
+# 使用技術（現在）
+| カテゴリ         | 使用技術                                |
+| ----------------| --------------------------------------|  
+| バックエンド      | Ruby (3.1.2)，Ruby on rails (7.0.8.4)  |
+| フロントエンド    | Ruby (3.1.2)  　　                      |
+| データベース 　　　| PostgreSQL                             | 
+| 環境構築         | Docker                                 | 
+| インフラ         | Render                                 | 
 
-# 概要
-自分の感情がうごいたできごとを記録するツールです。
+# 使用技術（未来。段階的に移行！！）
+| カテゴリ         | 使用技術                                |
+| ----------------| --------------------------------------|  
+| バックエンド      | Ruby (3.1.2)，Ruby on rails (7.0.8.4)  |
+| フロントエンド    | Typescript, React                      |
+| データベース 　　　| PostgreSQL                             | 
+| 環境構築         | Docker                                 | 
+| インフラ         | AWS   　                               | 
+| CI/CD           | Github Actions                         |
+
+# アプリケーション名（仮）
+「嫌われる勇気実践アプリ」
+
+# アプリケーション概要
+- 世界的なベストセラー「嫌われる勇気」（アドラー心理学）の考え方である、”課題の分離”を実践するアプリです。
+- あらかじめ設定された質問に記述式で回答します。
+- 自分が変えられること、変えられないことを認識できます。
 
 # URL
 https://oselfref.onrender.com
@@ -18,90 +39,33 @@ https://oselfref.onrender.com
 - email: test@test.com
 - pass: 3.14159
 
-
-
 # 使い方
-アカウントを作成されていない方は、新規登録してください。
-アカウントをお持ちの方は、ログインしてください。
-
-感情が揺れた時、フォームを入力して自分の感情を認識できます。
-保存したデータはCSV出力できます。
+新規登録／ログインをしてください。
+新規投稿ボタンをおして質問に回答します。
 
 # アプリケーションを作成した背景
-
-友人も自身も、自分のこととなると冷静な判断ができなくなります。
-言語化し記録することでまずは内省をおこなう。
-さらにAIに分析してもらえば、自分自身の思考の癖がわかり
-どのように考えることが自分にとってよいのか教えてもらえます。
+日常生活の中で直面する大小様々な課題に対し、テクノロジーを活用した解決策を模索しました。
+その中で、利便性向上・健康維持・快楽の追求などは手段にすぎず、その究極の目的は「幸せを感じること」であるとの結論に至りました。
+幸・不幸感は、外部の環境や自分の考え方、視点によって左右されます。
+しかし、外部の環境を常に自分の思い通りにすることは難しいため、自分の考え方を変えることに焦点をあてることにしました。
 
 # 機能（実装すみ）
 - ユーザー登録とログイン
-- 投稿の作成、一覧表示、CSV出力
+- 投稿の作成、一覧表示（ページネーション）、CSV出力
 
 # 機能（実装予定）
 - CSV出力範囲設定
-- 分析機能
 - 感情の度合いを数値で表示
 - AIとの連携（API）
 - セキュリティ機能強化
-- プライバシーポリシー
 
 # ER図
 ![ER図](./ER.drawio.png)
 
 # インフラ構成図
-![インフラ構成図](./SystemD.drawio.png)
+![インフラ構成図](準備中）
 
 
-# テーブル設計
-
-## users テーブル
-
-| Column             | Type      | Options                     |
-| ------------------ | --------- | --------------------------- |
-| nickname           | string    | null: false, unique: true   |
-| email.             | string    | null: false, unique: true   |
-| encrypted_password | string    | null: false                 |
-| created_at         | datetime  | null: false                 |
-| updated_at         | datetime  | null: false                 |
-
-### Association
-
-- has_many :posts
-- has_many :passkeys
-
-## posts テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| event      | text       | null: false                    |
-| emotions   | text       | array: true, default: []       |
-| self_task  | text       | null: false                    |
-| other_task | text       | null: false                    |
-| mood_after | text       | null: false                    |
-| note       | text       |                                |
-| user       | references | null: false, foreign_key: true |
-| created_at | datetime   | null: false                    |
-| updated_at | datetime   | null: false                    |
-
-### Association
-
-- belongs_to :user
-
-## passkeys テーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| user        | references | null: false, foreign_key: true |
-| external_id | string     | null: false, unique: true      |
-| public_key  | string     | null: false                    |
-| sign_count  | integer    | null: false, default: 0        |
-| label       | string     | null: false, default: "My Passkey" |
-| created_at  | datetime   | null: false                    |
-| updated_at  | datetime   | null: false                    |
-
-### Association
-- belongs_to :user
 
 # 画面遷移図（passkey 実装後修正）
 ![alt text](image-1.png)
@@ -115,17 +79,8 @@ graph TD;
     B --> G[Passkey Registration];
     C --> G[Passkey Registration];
 
-# 開発環境
-- Ruby on rails (version 7.0.0)
-- Ruby (version 3.2.0)
-
 
 # その他
-## 工夫したポイント
-- スマートフォン操作前提のU/Iにしました。
-
-## 改善点
-- 質問内容は、適宜アップデートします。
 
 ## セキュリティ設定
 - デフォルト設定
