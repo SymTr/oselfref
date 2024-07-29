@@ -1,7 +1,9 @@
 <!-- app/views/homes/index.html.erb -->
 <div class="container top-page">
-  <div class="upside-down">「うよみてえかをたかみのいかせ」</div>
-  <div class="page-title">「せかいのみかたをかえてみよう」</div>
+
+  <div class="page-title">「視点を変えるクイズアプリ」</div>
+  <%= button_to "質問にこたえてみる", new_post_path, method: :get, class: "try-button" %>
+  
   <% if user_signed_in? %>
     <div class="user-name">
         Welcome, <%= current_user.nickname %>さん！
@@ -14,21 +16,17 @@
   <% end %>
 
   <div class="info-section">
-    <h2>Who is this app for ? </h2>
-    <p>対象</p>
-    <p>自分の考え方を変えることで世界を変えたい人</p>
+    <h2>このアプリの対象者</h2>
+    <p>ネガティブ思考を変えたい人</p>
+    <p>人のせいにするのをやめたい人</p>
   </div>
 
   <div class="info-section">
-    <h2>How to use this app </h2>
-    <p>つかいかた</p>
-    <p>① こころが動いた瞬間のできごとを記録します</p>
-    <p>② AIで分析し、「わたし」の理解を深めます</p>
+    <h2>つかいかた</h2>
+    <p>①ログインします</p>
+    <p>②ネガティブ気持ちになったできごとと感情を記録します</p>
+    <p>③記録したことについて別の視点から考える練習をします</p>
+    <p>④応用編 記録したデータをAIに分析してもらいます</p>
   </div>
 
-  <div class="info-section">
-    <h2>Story of the Developer</h2>
-    <p>このアプリができるまで</p>
-    <p>別途お問い合わせください</p>
-  </div>
 </div>
