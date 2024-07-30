@@ -4,53 +4,60 @@
   <%= form_with model: @post, local: true do |form| %>
     <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
-      <%= form.label :situation, "何がありましたか？起きたこと（事実）を書いてください *" %>
+      <%= form.label :situation, "① 何がありましたか？起きたこと（事実）を書いてください *" %>
+      <%= content_tag :p, "例）通勤途中、電車の線路内に人が立ち入った。電車が止まってしまった。", class: "example-text" %>
       <%= form.text_area :situation, rows: 3 %>
     </div>
     <div class="form-group">
-      <%= form.label :thoughts, "その状況についてどう考えましたか？ *" %>
-      <%= form.text_area :thoughts, rows: 3 %>
+      <%= form.label :thoughts, "② 現在の気持ちをありのまま書き出してください。 *" %>    <%= content_tag :p, "例）うわわ、困ったな。よりによって今日か、、9時までに行かないといけないけど間に合う合うかしら。、しまった＞＜", class: "example-text" %>
+      <%= form.text_area :thoughts, rows: 5 %>
     </div>
     <div class="form-group">
-      <%= form.label :emotions, "どんな感情ですか？近いものをすべて選んでください *" %>
+      <%= form.label :emotions, "③ どんな感情ですか？近いものをすべて選んでください *" %>
        <div class="checkbox-grid">
-        <%= form.check_box :emotions, { multiple: true }, '喜び', nil %> 喜び
-        <%= form.check_box :emotions, { multiple: true }, '悲しみ', nil %> 悲しみ
-        <%= form.check_box :emotions, { multiple: true }, '怒り', nil %> 怒り
-        <%= form.check_box :emotions, { multiple: true }, '驚き', nil %> 驚き
-        <%= form.check_box :emotions, { multiple: true }, '恐れ', nil %> 恐れ
-        <%= form.check_box :emotions, { multiple: true }, '嫌悪', nil %> 嫌悪
-        <%= form.check_box :emotions, { multiple: true }, '不安', nil %> 不安
-      </div>
+          <% emotions = ['喜び', '悲しみ', '怒り', '驚き', '恐れ', '嫌悪', '不安'] %>
+          <% emotions.each do |emotion| %>
+            <div class="emotion-set">
+              <%= form.check_box :emotions, { multiple: true }, emotion, nil %>
+              <%= form.label "emotions_#{emotion}", emotion, class: 'emotion-label' %>
+            </div>
+          <% end %>
+       </div>     
     </div>
 
     <div class="form-group">
-      <%= form.label :self_task, "自分の課題（自分が変えられること）は何ですか？ *" %>
+      <%= form.label :self_task, "④ 自分の課題（自分が変えられること）は何ですか？ *" %>
+      <%= content_tag :p, "例）不慮の事態を想定して、スケジューリングする。30分前に到着できる電車にのればよかったのかもしれない", class: "example-text"%>
       <%= form.text_area :self_task, rows: 3 %>
     </div>
 
      <div class="form-group">
-      <%= form.label :others_task, "他者の課題（自分には変えられないこと）は何ですか？ *" %>
+      <%= form.label :others_task, "⑤ 他者の課題（自分には変えられないこと）は何ですか？ *" %>
+      <%= content_tag :p, "例）あらゆる事故を防ぐ。電車が定刻で運行するように促す", class: "example-text"%>
       <%= form.text_area :others_task, rows: 3 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :supporting_evidence, "その考えを肯定する根拠は何ですか？ *" %>
+      <%= form.label :supporting_evidence, "⑥ その考えを肯定する根拠はありますか？ *" %>
+      <%= content_tag :p, "例）他人の行動を制限することはできない。わざとじゃなかったかもしれないし。", class: "example-text"%>
       <%= form.text_area :supporting_evidence, rows: 3 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :contrary_evidence, "その考えに反する根拠は何ですか？ *" %>
+      <%= form.label :contrary_evidence, "⑦ その考えに反する根拠はありますか？ *" %>
+      <%= content_tag :p, "例）法律か何かで行動を制限する？？すでに法で決まっているのに立ち入る人がいるのだから仕方ないね、、、", class: "example-text"%>
       <%= form.text_area :contrary_evidence, rows: 3 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :alternative_thinking, "他の考え方はできますか？自由に書いてみましょう" %>
+      <%= form.label :alternative_thinking, "⑧ 他の考え方はできますか？自由に書いてみましょう" %>
+      <%= content_tag :p, "うーん、この路線はよく事故が起きるから、今後は違うルートでいくようにしようかな、、", class: "example-text"%>
       <%= form.text_area :alternative_thinking, rows: 3 %>
     </div>
 
     <div class="form-group">
-      <%= form.label :mood_after, "どんな感情が出てきましたか？ *" %>
+      <%= form.label :mood_after, "⑨ 感情の変化はありますか？出てきた感情を書いてください *" %>
+      <%= content_tag :p, "余裕をもって出発しなかった自分のせいだな。。。まずは先方に謝罪しよう", class: "example-text"%>
       <%= form.text_area :mood_after, rows: 3 %>
     </div>
 
