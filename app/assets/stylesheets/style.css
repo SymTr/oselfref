@@ -214,6 +214,7 @@ a:hover {
 /* check box */
 .checkbox-grid {
   display: flex;
+  /* flexをしようしているとvertical-alignは機能しない */
   flex-wrap: wrap;
   font-size: 0.9rem;
   color: #aaa;
@@ -223,20 +224,12 @@ a:hover {
 .emotion-set {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem;
-  align-items: center;
-}
-
-.emotion-set input[type="checkbox"] {
-  margin: 0; /* チェックボックスのデフォルトマージンを削除 */
 }
 
 .emotion-label {
-  margin-left: 0.25rem;
+  margin-right: 0.5rem;
   display: flex;
-  align-items: center; /* ラベル内のテキストも中央揃えにします */
-  height: 100%; /* 親要素の高さいっぱいに広げます */
+  align-items: center;
 }
 
 .btn-submit {
