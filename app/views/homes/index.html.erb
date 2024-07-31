@@ -1,32 +1,44 @@
 <!-- app/views/homes/index.html.erb -->
 <div class="container top-page">
+  <header class="page-header">
+    <h1 class="page-title">「嫌われる勇気」実践アプリ</h1>
+    <p class="page-subtitle">〜クイズにこたえて課題の分離をしてみよう〜</p>
+  </header>
 
-  <div class="page-title">「視点を変えるクイズアプリ」</div>
-  <%= button_to "質問にこたえてみる", new_post_path, method: :get, class: "try-button" %>
-  
-  <% if user_signed_in? %>
-    <div class="user-name">
-        Welcome, <%= current_user.nickname %>さん！
-         <%= link_to "Passkeys設定", passkeys_path, class: "btn btn-secondary" %>
-    </div>
-    <% else %>
-    <div class="user-name">
-      <%= link_to "ログイン", new_user_session_path %> してください
-    </div>
-  <% end %>
+  <main class="main-content">
+    <section class="cta-section">
+      <%= button_to "今すぐ試してみる", new_post_path, method: :get, class: "try-button" %>
+      
+      <div class="image-container">
+        <%# <%= image_tag 'your_image_path.jpg', alt: 'アプリの使用イメージ', class: 'feature-image' %> 
+      </div>
+    </section>
 
-  <div class="info-section">
-    <h2>このアプリの対象者</h2>
-    <p>自分の内面を成長させたい人</p>
-    <p>人のせいにするのをやめたい人</p>
-  </div>
+    <section class="user-section">
+      <% if user_signed_in? %>
+        <div class="user-name">
+          Welcome, <%= current_user.nickname %>さん！
+          <%= link_to "Passkeys設定", passkeys_path, class: "btn btn-secondary" %>
+        </div>
+      <% else %>
+        <div class="user-name">
+          <%= link_to "ログイン", new_user_session_path %> してください
+        </div>
+      <% end %>
+    </section>
 
-  <div class="info-section">
-    <h2>つかいかた</h2>
-    <p>①ログインします</p>
-    <p>②ネガティブ気持ちになったできごとと感情を記録します</p>
-    <p>③記録したことについて別の視点から考える練習をします</p>
-    <p>④応用編 記録したデータをAIに分析してもらいます</p>
-  </div>
+    <section class="info-section">
+      <h2>このアプリの対象者</h2>
+      <p>① 世界的ベストセラー「嫌われる勇気」を実践したい人</p>
+      <p>② 自分の内面を成長させたい人</p>
+    </section>
 
+    <section class="info-section">
+      <h2>つかいかた</h2>
+      <p>① ログインします</p>
+      <p>② こころが動いたできごとと感情を記録します</p>
+      <p>③ 記録したことについて別の視点から考える練習をします</p>
+      <p>④ 応用編 記録したデータをAIに分析してもらいます</p>
+    </section>
+  </main>
 </div>

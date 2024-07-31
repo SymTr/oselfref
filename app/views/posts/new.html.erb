@@ -6,11 +6,11 @@
     <div class="form-group">
       <%= form.label :situation, "① 何がありましたか？起きたこと（事実）を書いてください *" %>
       <%= content_tag :p, "例）通勤途中、電車の線路内に人が立ち入った。電車が止まってしまった。", class: "example-text" %>
-      <%= form.text_area :situation, rows: 3 %>
+      <%= form.text_area :situation, rows: 2 %>
     </div>
     <div class="form-group">
       <%= form.label :thoughts, "② 現在の気持ちをありのまま書き出してください。 *" %>    <%= content_tag :p, "例）うわわ、困ったな。よりによって今日か、、9時までに行かないといけないけど間に合う合うかしら。、しまった＞＜", class: "example-text" %>
-      <%= form.text_area :thoughts, rows: 5 %>
+      <%= form.text_area :thoughts, rows: 2 %>
     </div>
     <div class="form-group">
       <%= form.label :emotions, "③ どんな感情ですか？近いものをすべて選んでください *" %>
@@ -28,37 +28,37 @@
     <div class="form-group">
       <%= form.label :self_task, "④ 自分の課題（自分が変えられること）は何ですか？ *" %>
       <%= content_tag :p, "例）不慮の事態を想定して、スケジューリングする。30分前に到着できる電車にのればよかったのかもしれない", class: "example-text"%>
-      <%= form.text_area :self_task, rows: 3 %>
+      <%= form.text_area :self_task, rows: 2 %>
     </div>
 
      <div class="form-group">
       <%= form.label :others_task, "⑤ 他者の課題（自分には変えられないこと）は何ですか？ *" %>
       <%= content_tag :p, "例）あらゆる事故を防ぐ。電車が定刻で運行するように促す", class: "example-text"%>
-      <%= form.text_area :others_task, rows: 3 %>
+      <%= form.text_area :others_task, rows: 2 %>
     </div>
 
     <div class="form-group">
       <%= form.label :supporting_evidence, "⑥ その考えを肯定する根拠はありますか？ *" %>
       <%= content_tag :p, "例）他人の行動を制限することはできない。わざとじゃなかったかもしれないし。", class: "example-text"%>
-      <%= form.text_area :supporting_evidence, rows: 3 %>
+      <%= form.text_area :supporting_evidence, rows: 2 %>
     </div>
 
     <div class="form-group">
       <%= form.label :contrary_evidence, "⑦ その考えに反する根拠はありますか？ *" %>
       <%= content_tag :p, "例）法律か何かで行動を制限する？？すでに法で決まっているのに立ち入る人がいるのだから仕方ないね、、、", class: "example-text"%>
-      <%= form.text_area :contrary_evidence, rows: 3 %>
+      <%= form.text_area :contrary_evidence, rows: 2 %>
     </div>
 
     <div class="form-group">
       <%= form.label :alternative_thinking, "⑧ 他の考え方はできますか？自由に書いてみましょう" %>
       <%= content_tag :p, "うーん、この路線はよく事故が起きるから、今後は違うルートでいくようにしようかな、、", class: "example-text"%>
-      <%= form.text_area :alternative_thinking, rows: 3 %>
+      <%= form.text_area :alternative_thinking, rows: 2 %>
     </div>
 
     <div class="form-group">
       <%= form.label :mood_after, "⑨ 感情の変化はありますか？出てきた感情を書いてください *" %>
       <%= content_tag :p, "余裕をもって出発しなかった自分のせいだな。。。まずは先方に謝罪しよう", class: "example-text"%>
-      <%= form.text_area :mood_after, rows: 3 %>
+      <%= form.text_area :mood_after, rows: 2 %>
     </div>
 
     <div class="actions">
