@@ -5,6 +5,7 @@
     <%= render 'layouts/error_messages', model: @post %>
     <div class="form-group">
       <%= form.label :situation, "① 何がありましたか？起きたこと（事実）を書いてください *" %>
+      <%= content_tag :p, "注）キレイな文章を書く必要はありません。こころの赴くまま自由に表現しましょう", class: "example-text" %>
       <%= content_tag :p, "例）通勤途中、電車の線路内に人が立ち入った。電車が止まってしまった。", class: "example-text" %>
       <%= form.text_area :situation, rows: 2 %>
     </div>
@@ -57,11 +58,11 @@
 
     <div class="form-group">
       <%= form.label :mood_after, "⑨ 感情の変化はありますか？出てきた感情を書いてください *" %>
-      <%= content_tag :p, "余裕をもって出発しなかった自分のせいだな。。。まずは先方に謝罪しよう", class: "example-text"%>
+      <%= content_tag :p, "余裕をもって出発しなかった自分のせいだな。。。まずは先方に連絡して謝罪しよう", class: "example-text"%>
       <%= form.text_area :mood_after, rows: 2 %>
     </div>
 
-    <div class="actions">
+    <div class="button-group">
       <%= form.submit "投稿する", class: "btn-submit" %>
     </div>
   <% end %>
