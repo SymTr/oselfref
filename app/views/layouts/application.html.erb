@@ -14,7 +14,6 @@
     <% end %>
     <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
     <%= javascript_import_module_tag "helpers/webauthn_helper" %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -40,9 +39,10 @@
     <div class="body__container">
       <%= yield %>
     </div>
-    <footer class="footer">
+  
+   <footer class="footer">
       <p>
-        Copyright SymTr 2024.
+        © All rights reserved by SymTr 2024.
       </p>
     </footer>
   </body>
