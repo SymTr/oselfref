@@ -131,7 +131,6 @@ a:hover {
 /* ポストスタイル */
 .post {
   border-radius: 8px;
-  
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #1a1a1a;
@@ -247,6 +246,7 @@ a:hover {
 }
 
 .try-button:hover {
+  background-color: #666;
 
 }
 /* その他のスタイル */
