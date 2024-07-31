@@ -75,7 +75,7 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ボディコンテナ */
+/* ボディコンテナ  yieldで表示される各erb*/
 .body__container {
   display: flex;
   flex-direction: column;
@@ -94,8 +94,9 @@ a:hover {
   color: #ffffff;
   text-align: center;
   width: 100%;
-  font-size: 0.8em;
-  margin-top: auto;
+  font-size: 0.8rem;
+  padding: 10px 0;
+
 }
 
 /* コンテンツコンテナ */
@@ -115,7 +116,7 @@ a:hover {
   flex-direction: column;
 }
 
-/* ページタイトル */
+/* トップページ*/
 .page-title {
   color: #fff;
   font-size: 1.5rem;
@@ -127,6 +128,37 @@ a:hover {
   margin-bottom: 3rem;
   text-align: center;
 }
+
+.user-name {
+  font-size: 0.9rem;
+  color: #fff;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.info-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.info-section p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ccc;
+  text-align: center;
+}
+
 
 /* ポストスタイル */
 .post {
@@ -165,7 +197,7 @@ a:hover {
   display: block;
   margin-bottom: 0.3rem;
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .example-text {
@@ -181,7 +213,7 @@ a:hover {
   border: 1px solid #444;
   border-radius: 4px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.12em;
 }
 
@@ -220,7 +252,7 @@ a:hover {
 .btn-secondary {
   padding: 0.5rem 1rem;
   background-color: #333333;
-  border: 1px solid #444;
+  border: 1px solid #aaa;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -250,35 +282,6 @@ a:hover {
 
 }
 /* その他のスタイル */
-.user-name {
-  font-size: 15px;
-  color: #fff;
-  margin-top: 100px;
-  text-align: center;
-}
-
-.info-section {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-.info-section h2 {
-  font-size: 20px;
-  color: #fff;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.info-section p {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #ccc;
-  text-align: center;
-}
 
 .error-alert {
   color: #fff;
