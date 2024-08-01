@@ -79,10 +79,10 @@ a:hover {
 .body__container {
   display: flex;
   flex-direction: column;
-  padding: calc(1rem + 60px) 0 60px;
+  /* padding: calc(1rem + 60px) 0 60px;  */
+  padding: 60px 60px 0; 
   background-color: #2c2c2c;
-  width: 100%;
-  max-width: 800px;
+  width: 100vw;
   margin: 0 auto;
   min-height: 100vh;
   align-items: center;
@@ -101,8 +101,7 @@ a:hover {
 
 /* コンテンツコンテナ */
 .posts-index,
-.new-post-form,
-.home-page {
+.new-post-form {
   width: 80%;
   max-width: 800px;
   margin: 0;
@@ -116,11 +115,32 @@ a:hover {
   flex-direction: column;
 }
 
+.top-page {
+  background-image: url('/assets/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+/* fixにすることで、画像のズーム具合調整できるから必須 */
+  min-height: 100vh;
+  position: relative; 
+  width: 100%;
+}
+
 /* トップページ*/
+.image-group {
+  max-width: 300px; /* 最大幅を設定 */
+  margin: 1rem auto;
+  display: flex;
+}
+
+.image-group img {
+  width: 100%; /* コンテナに対して100%の幅に設定 */
+  height: auto; /* アスペクト比を維持 */
+}
+
 .page-title {
   color: #fff;
   font-size: 1.3rem;
-  margin: 1rem 0 2rem;
+  margin: 2rem 0;
   text-align: center;
 }
 .page-subtitle {
@@ -135,19 +155,23 @@ a:hover {
   color: #fff;
   margin-top: 100px;
   text-align: center;
+  font-weight: bold;
+
 }
 
 .info-section {
-  margin-top: 20px;
+  margin: 20px auto;
+  max-width: 300px; /* 最大幅を設定 */
   padding: 20px;
-  background-color: #1a1a1a;
+  background-color: #333333;
+  border: 1px solid #aaa;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
 .info-section h2 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #fff;
   margin-bottom: 10px;
   text-align: center;

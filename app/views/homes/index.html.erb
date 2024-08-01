@@ -8,17 +8,13 @@
   <main class="main-content">
     <section class="cta-section">
       <%= button_to "今すぐ試してみる", new_post_path, method: :get, class: "try-button" %>
-      
-      <div class="image-container">
-        <%# <%= image_tag 'your_image_path.jpg', alt: 'アプリの使用イメージ', class: 'feature-image' %> 
-      </div>
     </section>
 
     <section class="user-section">
       <% if user_signed_in? %>
         <div class="user-name">
           Welcome, <%= current_user.nickname %>さん！
-          <%= link_to "Passkeys設定", passkeys_path, class: "btn btn-secondary" %>
+          <%= link_to "Passkeys設定はこちら", passkeys_path %>
         </div>
       <% else %>
         <div class="user-name">
@@ -33,6 +29,10 @@
       <p>② 自分の内面を成長させたい人</p>
     </section>
 
+    <div class="image-group">
+        <%= image_tag("phone-new1.png", class:"first-image") %>
+    </div>
+
     <section class="info-section">
       <h2>つかいかた</h2>
       <p>① ログインします</p>
@@ -40,5 +40,10 @@
       <p>③ 記録したことについて別の視点から考える練習をします</p>
       <p>④ 応用編 記録したデータをAIに分析してもらいます</p>
     </section>
+
+    <div class="image-group">
+        <%= image_tag("phone-index1.png", class:"second-image") %>
+    </div>
+
   </main>
 </div>
