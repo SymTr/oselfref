@@ -115,8 +115,9 @@ a:hover {
   flex-direction: column;
 }
 
-.top-page {
-  background-image: url('/assets/background.jpg');
+ .top-page {
+  /* background-image: url('/assets/background.jpg'); */ 
+  background-image: asset-url('background.jpg');
   background-size: cover;
   background-attachment: fixed;
 /* fixにすることで、画像のズーム具合調整できるから必須 */
