@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 services:
   web:
     build: .
@@ -23,6 +23,11 @@ services:
       POSTGRES_DB: myapp_development
     ports:
       - "5433:5432"
+
+  chrome:
+    image: selenium/standalone-chrome:3.141.59-zirconium
+    volumes:
+      - /dev/shm:/dev/shm
 
 volumes:
   postgres_data:

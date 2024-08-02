@@ -67,3 +67,4 @@ RSpec.describe "PasskeyAuthentications", type: :system do
     end
   end
 end
+end

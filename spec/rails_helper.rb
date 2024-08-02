@@ -25,7 +25,11 @@ RSpec.configure do |config|
   config.include WebAuthnTestHelper, type: :system
 
   config.before(:each, type: :system) do
-    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
+    driven_by :selenium, using: :headless_chrome, options: {
+      browser: :remote,
+      url: "http://chrome:4444/wd/hub",
+      desired_capabilities: :chrome
+    }
   end
 end
 
