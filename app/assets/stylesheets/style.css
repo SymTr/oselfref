@@ -79,7 +79,6 @@ a:hover {
 .body__container {
   display: flex;
   flex-direction: column;
-  /* padding: calc(1rem + 60px) 0 60px;  */
   padding: 60px 60px 0; 
   background-color: #2c2c2c;
   width: 100vw;
@@ -101,7 +100,8 @@ a:hover {
 
 /* コンテンツコンテナ */
 .posts-index,
-.new-post-form {
+.new-post-form,
+.container-top-page {
   width: 80%;
   max-width: 800px;
   margin: 0;
@@ -115,14 +115,14 @@ a:hover {
   flex-direction: column;
 }
 
-.top-page {
-  background-image: url('/assets/background.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-/* fixにすることで、画像のズーム具合調整できるから必須 */
-  min-height: 100vh;
-  position: relative; 
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
 }
 
 /* トップページ*/
@@ -147,16 +147,14 @@ a:hover {
   color: #fff;
   margin-bottom: 3rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .user-name {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #fff;
   margin-top: 80px;
   text-align: center;
-  font-weight: bold;
-
 }
 
 .info-section {
@@ -183,6 +181,15 @@ a:hover {
   color: #ccc;
   text-align: center;
 }
+
+.image-exp {
+  font-size: 0.8rem;
+  color: #fff;
+  margin-top: 40px;
+  text-align: center;
+
+}
+
 
 
 /* ポストスタイル */
