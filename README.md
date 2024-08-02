@@ -36,8 +36,8 @@ https://oselfref.onrender.com
 - 履歴書に記載
 
 ## Test用アカウント
-- email: test@test.com
-- pass: 3.14159
+- email: hon@gmail.com
+- pass: 111qqq
 
 # 使い方
 新規登録／ログインをしてください。
