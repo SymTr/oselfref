@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  
-  validates :situation, :thoughts, :emotions, :self_task, :others_task, 
+
+  validates :situation, :thoughts, :emotions, :self_task, :others_task,
             :supporting_evidence, :contrary_evidence, :alternative_thinking, :mood_after, presence: true
 
   serialize :emotions, Array

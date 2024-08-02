@@ -13,7 +13,7 @@ module WebAuthnTestHelper
           },
           challenge: Base64.strict_encode64('test_challenge'),
           pubKeyCredParams: [{ type: 'public-key', alg: -7 }],
-          timeout: 60000,
+          timeout: 60_000,
           attestation: 'direct',
           authenticatorSelection: {
             authenticatorAttachment: 'platform',
@@ -24,7 +24,7 @@ module WebAuthnTestHelper
     )
   end
 
-  def mock_webauthn_get_response(user, passkey)
+  def mock_webauthn_get_response(_user, passkey)
     allow(WebAuthn::Credential).to receive(:options_for_get).and_return(
       OpenStruct.new(
         challenge: Base64.strict_encode64('test_challenge'),
@@ -32,7 +32,7 @@ module WebAuthnTestHelper
           { type: 'public-key', id: Base64.strict_encode64(passkey.external_id) }
         ],
         userVerification: 'preferred',
-        timeout: 60000
+        timeout: 60_000
       )
     )
   end

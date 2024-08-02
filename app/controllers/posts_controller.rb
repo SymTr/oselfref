@@ -29,8 +29,8 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:situation, :thoughts, :self_task, :others_task, 
-                                 :supporting_evidence, :contrary_evidence, 
+    params.require(:post).permit(:situation, :thoughts, :self_task, :others_task,
+                                 :supporting_evidence, :contrary_evidence,
                                  :alternative_thinking, :mood_after, emotions: []).merge(user_id: current_user.id)
   end
 
