@@ -1,23 +1,13 @@
 FROM ruby:3.1.2
 
-# システムの依存関係をインストール
-RUN apt-get update -qq && \
-    apt-get install -y nodejs postgresql-client libpq-dev
-
+ENV LANG C.UTF-8
+ENV TZ=Asia/Tokyo
 WORKDIR /myapp
 
-# GemfileとGemfile.lockをコピー
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+# Install system dependencies
+RUN apt-get update -qq && apt-get install -y postgresql-client
 
-# Gemのインストール
-RUN bundle install
-
-# アプリケーションコードをコピー
-COPY . /myapp
-
-
-# Install Chrome and ChromeDriver
+# Install Chrome
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update \
@@ -33,5 +23,16 @@ RUN CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_
     && chown root:root /usr/local/bin/chromedriver \
     && chmod 0755 /usr/local/bin/chromedriver
 
-# Railsサーバーを起動
+# Set up environment for Chrome
+ENV CHROME_BIN=/usr/bin/google-chrome-stable
+ENV CHROME_PATH=/usr/bin/google-chrome-stable
+
+# Copy Gemfile and install gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Copy application code
+COPY . .
+
+# Start Rails server
 CMD ["rails", "server", "-b", "0.0.0.0"]

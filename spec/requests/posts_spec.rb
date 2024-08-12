@@ -48,9 +48,9 @@ RSpec.describe 'PostsController', type: :request do
       end
     end
 
-    context "無効なパラメータの場合" do
-      it "新しいテンプレートを表示する" do
-        post posts_path, params: { post: { content: "" } }
+    context '無効なパラメータの場合' do
+      it '新しいテンプレートを表示する' do
+        post posts_path, params: { post: { content: '' } }
         expect(response).to render_template(:new)
         expect(response.body).to include('新規投稿')
       end
