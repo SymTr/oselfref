@@ -18,7 +18,7 @@ RSpec.describe 'PostsController', type: :request do
 
     it '現在のユーザーの投稿を返す' do
       get posts_path
-      expect(response.body).to include(post_record.event)
+      expect(response.body).to include(post_record.situation)
     end
   end
 
@@ -50,7 +50,8 @@ RSpec.describe 'PostsController', type: :request do
 
     context '無効なパラメータの場合' do
       it '新しいテンプレートを表示する' do
-        post posts_path, params: { post: attributes_for(:post, event: nil) }
+        post posts_path, params: { post: { content: '' } }
+        expect(response).to render_template(:new)
         expect(response.body).to include('新規投稿')
       end
     end

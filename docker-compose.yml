@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 services:
   web:
     build: .
@@ -11,6 +11,9 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://postgres:password@db/myapp_development
+      RAILS_ENV: test
+      CAPYBARA_SERVER_HOST: '0.0.0.0'
+      CAPYBARA_APP_HOST: 'http://web:3000'
     tty: true
     stdin_open: true
 

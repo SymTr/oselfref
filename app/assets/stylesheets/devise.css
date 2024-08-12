@@ -62,7 +62,7 @@
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   transition: background-color 0.3s;
 }
 
@@ -77,6 +77,11 @@
   align-items: center
 }
 
+.post{
+  font-size: 0.9rem;
+}
+
+/* error */
 .error-alert {
   color: #fff;
   padding: 10px;
